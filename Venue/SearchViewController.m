@@ -35,6 +35,13 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+//remove keyboard when user touches the screen elsewhere
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    [self.view endEditing:YES];
+}
+
+
 /*
 #pragma mark - Navigation
 

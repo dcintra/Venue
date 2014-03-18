@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6547A23318D8C098003EDDAD /* FavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6547A23218D8C098003EDDAD /* FavoritesViewController.m */; };
 		65821CA118D8B8A800DE2AA2 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65821CA018D8B8A800DE2AA2 /* DetailViewController.m */; };
 		65821CA318D8BA1000DE2AA2 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65821CA218D8BA1000DE2AA2 /* MapKit.framework */; };
-		65821CA818D8BB0B00DE2AA2 /* COMSMapManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65821CA618D8BABB00DE2AA2 /* COMSMapManager.framework */; };
 		6583698718D8B27100C988E1 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6583698618D8B27100C988E1 /* SearchViewController.m */; };
 		6583698A18D8B6F600C988E1 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6583698918D8B6F600C988E1 /* MapViewController.m */; };
 		6583698D18D8B72F00C988E1 /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6583698C18D8B72F00C988E1 /* ListViewController.m */; };
@@ -42,12 +42,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6547A23118D8C098003EDDAD /* FavoritesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesViewController.h; sourceTree = "<group>"; };
+		6547A23218D8C098003EDDAD /* FavoritesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesViewController.m; sourceTree = "<group>"; };
 		65821C9F18D8B8A800DE2AA2 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		65821CA018D8B8A800DE2AA2 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		65821CA218D8BA1000DE2AA2 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		65821CA518D8BABB00DE2AA2 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		65821CA618D8BABB00DE2AA2 /* COMSMapManager.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = COMSMapManager.framework; sourceTree = "<group>"; };
-		65821CA718D8BABB00DE2AA2 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		6583698518D8B27100C988E1 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		6583698618D8B27100C988E1 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		6583698818D8B6F600C988E1 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
@@ -80,7 +79,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				65821CA818D8BB0B00DE2AA2 /* COMSMapManager.framework in Frameworks */,
 				6583720A18D8B1210009971B /* CoreGraphics.framework in Frameworks */,
 				6583720E18D8B1210009971B /* CoreData.framework in Frameworks */,
 				65821CA318D8BA1000DE2AA2 /* MapKit.framework in Frameworks */,
@@ -103,12 +101,9 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		65821CA418D8BABB00DE2AA2 /* 6998GoogleMapsFramework */ = {
+		6502ABF118D8C2CB00CCC60A /* 6998GoogleMapsFramework */ = {
 			isa = PBXGroup;
 			children = (
-				65821CA518D8BABB00DE2AA2 /* .gitignore */,
-				65821CA618D8BABB00DE2AA2 /* COMSMapManager.framework */,
-				65821CA718D8BABB00DE2AA2 /* README.md */,
 			);
 			name = 6998GoogleMapsFramework;
 			path = "../../../Columbia/cellular networks mobile computing/6998GoogleMapsFramework";
@@ -136,7 +131,7 @@
 		6583720618D8B1210009971B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				65821CA418D8BABB00DE2AA2 /* 6998GoogleMapsFramework */,
+				6502ABF118D8C2CB00CCC60A /* 6998GoogleMapsFramework */,
 				65821CA218D8BA1000DE2AA2 /* MapKit.framework */,
 				6583720718D8B1210009971B /* Foundation.framework */,
 				6583720918D8B1210009971B /* CoreGraphics.framework */,
@@ -161,6 +156,8 @@
 				65821C9F18D8B8A800DE2AA2 /* DetailViewController.h */,
 				65821CA018D8B8A800DE2AA2 /* DetailViewController.m */,
 				6583698C18D8B72F00C988E1 /* ListViewController.m */,
+				6547A23118D8C098003EDDAD /* FavoritesViewController.h */,
+				6547A23218D8C098003EDDAD /* FavoritesViewController.m */,
 				6583722718D8B1210009971B /* Images.xcassets */,
 				6583721E18D8B1210009971B /* Venue.xcdatamodeld */,
 				6583721018D8B1210009971B /* Supporting Files */,
@@ -307,6 +304,7 @@
 				6583698A18D8B6F600C988E1 /* MapViewController.m in Sources */,
 				6583698718D8B27100C988E1 /* SearchViewController.m in Sources */,
 				6583721618D8B1210009971B /* main.m in Sources */,
+				6547A23318D8C098003EDDAD /* FavoritesViewController.m in Sources */,
 				65821CA118D8B8A800DE2AA2 /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
