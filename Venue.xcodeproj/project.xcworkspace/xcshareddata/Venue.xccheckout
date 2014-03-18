@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>852A2C0C-6418-4B8E-8636-A9C6D1947446</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Venue</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>1516562A-7528-404B-A9E0-E031D5B00FDE</key>
+		<string>https://github.com/williamFalcon/6998GoogleMapsFramework.git</string>
+		<key>549C7518-6DEC-482F-ABA7-4EE82F892842</key>
+		<string>https://github.com/dcintra/Venue.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Venue.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>1516562A-7528-404B-A9E0-E031D5B00FDE</key>
+		<string>../../../../../Columbia/cellular networks mobile computing/6998GoogleMapsFramework</string>
+		<key>549C7518-6DEC-482F-ABA7-4EE82F892842</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/dcintra/Venue.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>549C7518-6DEC-482F-ABA7-4EE82F892842</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>1516562A-7528-404B-A9E0-E031D5B00FDE</string>
+			<key>IDESourceControlWCCName</key>
+			<string>6998GoogleMapsFramework</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>549C7518-6DEC-482F-ABA7-4EE82F892842</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Venue</string>
+		</dict>
+	</array>
+</dict>
+</plist>

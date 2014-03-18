@@ -1,18 +1,18 @@
 //
-//  DetailViewController.m
+//  MapViewController.m
 //  Venue
 //
 //  Created by Daniel Cintra on 3/18/14.
 //  Copyright (c) 2014 Daniel Cintra. All rights reserved.
 //
 
-#import "DetailViewController.h"
+#import "MapViewController.h"
 
-@interface DetailViewController ()
+@interface MapViewController ()
 
 @end
 
-@implementation DetailViewController
+@implementation MapViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

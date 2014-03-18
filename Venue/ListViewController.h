@@ -1,5 +1,5 @@
 //
-//  DetailViewController.h
+//  ListViewController.h
 //  Venue
 //
 //  Created by Daniel Cintra on 3/18/14.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DetailViewController : UIViewController
+@interface ListViewController : UIViewController
 
 @end

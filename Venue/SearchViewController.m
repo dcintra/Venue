@@ -1,18 +1,18 @@
 //
-//  DetailViewController.m
+//  SearchViewController.m
 //  Venue
 //
 //  Created by Daniel Cintra on 3/18/14.
 //  Copyright (c) 2014 Daniel Cintra. All rights reserved.
 //
 
-#import "DetailViewController.h"
+#import "SearchViewController.h"
 
-@interface DetailViewController ()
+@interface SearchViewController ()
 
 @end
 
-@implementation DetailViewController
+@implementation SearchViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

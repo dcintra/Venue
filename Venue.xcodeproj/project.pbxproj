@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		65821CA118D8B8A800DE2AA2 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65821CA018D8B8A800DE2AA2 /* DetailViewController.m */; };
+		65821CA318D8BA1000DE2AA2 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65821CA218D8BA1000DE2AA2 /* MapKit.framework */; };
+		65821CA818D8BB0B00DE2AA2 /* COMSMapManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65821CA618D8BABB00DE2AA2 /* COMSMapManager.framework */; };
+		6583698718D8B27100C988E1 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6583698618D8B27100C988E1 /* SearchViewController.m */; };
+		6583698A18D8B6F600C988E1 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6583698918D8B6F600C988E1 /* MapViewController.m */; };
+		6583698D18D8B72F00C988E1 /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6583698C18D8B72F00C988E1 /* ListViewController.m */; };
 		6583720818D8B1210009971B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6583720718D8B1210009971B /* Foundation.framework */; };
 		6583720A18D8B1210009971B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6583720918D8B1210009971B /* CoreGraphics.framework */; };
 		6583720C18D8B1210009971B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6583720B18D8B1210009971B /* UIKit.framework */; };
@@ -16,8 +22,6 @@
 		6583721A18D8B1210009971B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6583721918D8B1210009971B /* AppDelegate.m */; };
 		6583721D18D8B1210009971B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6583721B18D8B1210009971B /* Main.storyboard */; };
 		6583722018D8B1210009971B /* Venue.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6583721E18D8B1210009971B /* Venue.xcdatamodeld */; };
-		6583722318D8B1210009971B /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6583722218D8B1210009971B /* MasterViewController.m */; };
-		6583722618D8B1210009971B /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6583722518D8B1210009971B /* DetailViewController.m */; };
 		6583722818D8B1210009971B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6583722718D8B1210009971B /* Images.xcassets */; };
 		6583722F18D8B1210009971B /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6583722E18D8B1210009971B /* XCTest.framework */; };
 		6583723018D8B1210009971B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6583720718D8B1210009971B /* Foundation.framework */; };
@@ -38,6 +42,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		65821C9F18D8B8A800DE2AA2 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		65821CA018D8B8A800DE2AA2 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		65821CA218D8BA1000DE2AA2 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		65821CA518D8BABB00DE2AA2 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		65821CA618D8BABB00DE2AA2 /* COMSMapManager.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = COMSMapManager.framework; sourceTree = "<group>"; };
+		65821CA718D8BABB00DE2AA2 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		6583698518D8B27100C988E1 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		6583698618D8B27100C988E1 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		6583698818D8B6F600C988E1 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		6583698918D8B6F600C988E1 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		6583698B18D8B72F00C988E1 /* ListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListViewController.h; sourceTree = "<group>"; };
+		6583698C18D8B72F00C988E1 /* ListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListViewController.m; sourceTree = "<group>"; };
 		6583720418D8B1210009971B /* Venue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Venue.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6583720718D8B1210009971B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6583720918D8B1210009971B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -51,10 +67,6 @@
 		6583721918D8B1210009971B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		6583721C18D8B1210009971B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6583721F18D8B1210009971B /* Venue.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Venue.xcdatamodel; sourceTree = "<group>"; };
-		6583722118D8B1210009971B /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
-		6583722218D8B1210009971B /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
-		6583722418D8B1210009971B /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
-		6583722518D8B1210009971B /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		6583722718D8B1210009971B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6583722D18D8B1210009971B /* VenueTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VenueTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6583722E18D8B1210009971B /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -68,8 +80,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65821CA818D8BB0B00DE2AA2 /* COMSMapManager.framework in Frameworks */,
 				6583720A18D8B1210009971B /* CoreGraphics.framework in Frameworks */,
 				6583720E18D8B1210009971B /* CoreData.framework in Frameworks */,
+				65821CA318D8BA1000DE2AA2 /* MapKit.framework in Frameworks */,
 				6583720C18D8B1210009971B /* UIKit.framework in Frameworks */,
 				6583720818D8B1210009971B /* Foundation.framework in Frameworks */,
 			);
@@ -89,6 +103,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		65821CA418D8BABB00DE2AA2 /* 6998GoogleMapsFramework */ = {
+			isa = PBXGroup;
+			children = (
+				65821CA518D8BABB00DE2AA2 /* .gitignore */,
+				65821CA618D8BABB00DE2AA2 /* COMSMapManager.framework */,
+				65821CA718D8BABB00DE2AA2 /* README.md */,
+			);
+			name = 6998GoogleMapsFramework;
+			path = "../../../Columbia/cellular networks mobile computing/6998GoogleMapsFramework";
+			sourceTree = "<group>";
+		};
 		658371FB18D8B1210009971B = {
 			isa = PBXGroup;
 			children = (
@@ -111,6 +136,8 @@
 		6583720618D8B1210009971B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				65821CA418D8BABB00DE2AA2 /* 6998GoogleMapsFramework */,
+				65821CA218D8BA1000DE2AA2 /* MapKit.framework */,
 				6583720718D8B1210009971B /* Foundation.framework */,
 				6583720918D8B1210009971B /* CoreGraphics.framework */,
 				6583720B18D8B1210009971B /* UIKit.framework */,
@@ -126,10 +153,14 @@
 				6583721818D8B1210009971B /* AppDelegate.h */,
 				6583721918D8B1210009971B /* AppDelegate.m */,
 				6583721B18D8B1210009971B /* Main.storyboard */,
-				6583722118D8B1210009971B /* MasterViewController.h */,
-				6583722218D8B1210009971B /* MasterViewController.m */,
-				6583722418D8B1210009971B /* DetailViewController.h */,
-				6583722518D8B1210009971B /* DetailViewController.m */,
+				6583698518D8B27100C988E1 /* SearchViewController.h */,
+				6583698618D8B27100C988E1 /* SearchViewController.m */,
+				6583698818D8B6F600C988E1 /* MapViewController.h */,
+				6583698918D8B6F600C988E1 /* MapViewController.m */,
+				6583698B18D8B72F00C988E1 /* ListViewController.h */,
+				65821C9F18D8B8A800DE2AA2 /* DetailViewController.h */,
+				65821CA018D8B8A800DE2AA2 /* DetailViewController.m */,
+				6583698C18D8B72F00C988E1 /* ListViewController.m */,
 				6583722718D8B1210009971B /* Images.xcassets */,
 				6583721E18D8B1210009971B /* Venue.xcdatamodeld */,
 				6583721018D8B1210009971B /* Supporting Files */,
@@ -213,6 +244,13 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Daniel Cintra";
 				TargetAttributes = {
+					6583720318D8B1210009971B = {
+						SystemCapabilities = {
+							com.apple.iOS = {
+								enabled = 1;
+							};
+						};
+					};
 					6583722C18D8B1210009971B = {
 						TestTargetID = 6583720318D8B1210009971B;
 					};
@@ -263,11 +301,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6583722618D8B1210009971B /* DetailViewController.m in Sources */,
-				6583722318D8B1210009971B /* MasterViewController.m in Sources */,
 				6583721A18D8B1210009971B /* AppDelegate.m in Sources */,
 				6583722018D8B1210009971B /* Venue.xcdatamodeld in Sources */,
+				6583698D18D8B72F00C988E1 /* ListViewController.m in Sources */,
+				6583698A18D8B6F600C988E1 /* MapViewController.m in Sources */,
+				6583698718D8B27100C988E1 /* SearchViewController.m in Sources */,
 				6583721618D8B1210009971B /* main.m in Sources */,
+				65821CA118D8B8A800DE2AA2 /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -392,6 +432,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/daniel/Google,
+					Drive/Columbia/cellular,
+					networks,
+					mobile,
+					computing/6998GoogleMapsFramework,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Venue/Venue-Prefix.pch";
 				INFOPLIST_FILE = "Venue/Venue-Info.plist";
@@ -405,6 +453,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/daniel/Google,
+					Drive/Columbia/cellular,
+					networks,
+					mobile,
+					computing/6998GoogleMapsFramework,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Venue/Venue-Prefix.pch";
 				INFOPLIST_FILE = "Venue/Venue-Info.plist";
@@ -472,6 +528,7 @@
 				6583724118D8B1210009971B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6583724218D8B1210009971B /* Build configuration list for PBXNativeTarget "VenueTests" */ = {
 			isa = XCConfigurationList;
@@ -480,6 +537,7 @@
 				6583724418D8B1210009971B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
