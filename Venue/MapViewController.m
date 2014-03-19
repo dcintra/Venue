@@ -8,11 +8,26 @@
 
 #import "MapViewController.h"
 
-@interface MapViewController ()
+
+@interface MapViewController () <MKMapViewDelegate>
+
+@property (weak, nonatomic) IBOutlet MKMapView *mapView;
+
 
 @end
 
 @implementation MapViewController
+@synthesize query, currentLocation;
+
+-(void)setMapView:(MKMapView *)mapView{
+    _mapView = mapView;
+    self.mapView.delegate = self;
+    [self.mapView setShowsUserLocation:TRUE];
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(currentLocation.coordinate, 800, 800);
+    [mapView setRegion:[self.mapView regionThatFits:region] animated:YES];
+}
+
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -27,6 +42,8 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    NSLog(@"%@ latitude: %f",query, currentLocation.coordinate.latitude);
+    
 }
 
 - (void)didReceiveMemoryWarning
