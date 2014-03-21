@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "VenueAnnotation.h"
 
 @interface DetailViewController : UIViewController
+
+@property NSString *name;
+@property NSString *address;
+@property NSNumber *rating;
+@property NSString *isOpen;
+@property NSString *photoURL;
 
 @end

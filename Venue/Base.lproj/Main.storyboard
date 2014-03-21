@@ -12,7 +12,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="97m-1h-BaF" kind="relationship" relationship="rootViewController" id="7qL-Yh-4hT"/>
+                        <segue destination="97m-1h-BaF" kind="relationship" relationship="rootViewController" id="y4K-pi-mSE"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WwA-hL-GMK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -74,11 +74,42 @@
                     <navigationItem key="navigationItem" id="NUm-nM-i1B"/>
                     <connections>
                         <outlet property="mapView" destination="n8H-cZ-w0f" id="Naf-iW-j48"/>
+                        <segue destination="IhX-hi-cWv" kind="push" identifier="ShowDetails" id="avL-IF-WnY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qto-yr-iSM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="467" y="379"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="jbn-xD-l0I">
+            <objects>
+                <viewController id="IhX-hi-cWv" customClass="DetailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="h4K-lr-wu2"/>
+                        <viewControllerLayoutGuide type="bottom" id="Q0V-8H-BXv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QEZ-5Q-jhY">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LJX-Zb-29z">
+                                <rect key="frame" x="65" y="173" width="190" height="53"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="e2Q-un-Jdj"/>
+                    <connections>
+                        <outlet property="placeName" destination="LJX-Zb-29z" id="yHG-oZ-AqR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fLG-MD-Ohe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="906" y="378"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

@@ -29,6 +29,8 @@
 		6583723218D8B1210009971B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6583720D18D8B1210009971B /* CoreData.framework */; };
 		6583723A18D8B1210009971B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6583723818D8B1210009971B /* InfoPlist.strings */; };
 		6583723C18D8B1210009971B /* VenueTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6583723B18D8B1210009971B /* VenueTests.m */; };
+		6586109518DB5EC1007523C0 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6586109418DB5EC1007523C0 /* CoreLocation.framework */; };
+		65A4A9A718DB505600F07A20 /* VenueAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 65A4A9A618DB505600F07A20 /* VenueAnnotation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +74,9 @@
 		6583723718D8B1210009971B /* VenueTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "VenueTests-Info.plist"; sourceTree = "<group>"; };
 		6583723918D8B1210009971B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6583723B18D8B1210009971B /* VenueTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VenueTests.m; sourceTree = "<group>"; };
+		6586109418DB5EC1007523C0 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		65A4A9A518DB505600F07A20 /* VenueAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VenueAnnotation.h; sourceTree = "<group>"; };
+		65A4A9A618DB505600F07A20 /* VenueAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VenueAnnotation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6586109518DB5EC1007523C0 /* CoreLocation.framework in Frameworks */,
 				6583720A18D8B1210009971B /* CoreGraphics.framework in Frameworks */,
 				6583720E18D8B1210009971B /* CoreData.framework in Frameworks */,
 				65821CA318D8BA1000DE2AA2 /* MapKit.framework in Frameworks */,
@@ -101,14 +107,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6502ABF118D8C2CB00CCC60A /* 6998GoogleMapsFramework */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = 6998GoogleMapsFramework;
-			path = "../../../Columbia/cellular networks mobile computing/6998GoogleMapsFramework";
-			sourceTree = "<group>";
-		};
 		658371FB18D8B1210009971B = {
 			isa = PBXGroup;
 			children = (
@@ -131,7 +129,7 @@
 		6583720618D8B1210009971B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				6502ABF118D8C2CB00CCC60A /* 6998GoogleMapsFramework */,
+				6586109418DB5EC1007523C0 /* CoreLocation.framework */,
 				65821CA218D8BA1000DE2AA2 /* MapKit.framework */,
 				6583720718D8B1210009971B /* Foundation.framework */,
 				6583720918D8B1210009971B /* CoreGraphics.framework */,
@@ -152,10 +150,12 @@
 				6583698618D8B27100C988E1 /* SearchViewController.m */,
 				6583698818D8B6F600C988E1 /* MapViewController.h */,
 				6583698918D8B6F600C988E1 /* MapViewController.m */,
+				65A4A9A518DB505600F07A20 /* VenueAnnotation.h */,
+				65A4A9A618DB505600F07A20 /* VenueAnnotation.m */,
 				6583698B18D8B72F00C988E1 /* ListViewController.h */,
+				6583698C18D8B72F00C988E1 /* ListViewController.m */,
 				65821C9F18D8B8A800DE2AA2 /* DetailViewController.h */,
 				65821CA018D8B8A800DE2AA2 /* DetailViewController.m */,
-				6583698C18D8B72F00C988E1 /* ListViewController.m */,
 				6547A23118D8C098003EDDAD /* FavoritesViewController.h */,
 				6547A23218D8C098003EDDAD /* FavoritesViewController.m */,
 				6583722718D8B1210009971B /* Images.xcassets */,
@@ -306,6 +306,7 @@
 				6583721618D8B1210009971B /* main.m in Sources */,
 				6547A23318D8C098003EDDAD /* FavoritesViewController.m in Sources */,
 				65821CA118D8B8A800DE2AA2 /* DetailViewController.m in Sources */,
+				65A4A9A718DB505600F07A20 /* VenueAnnotation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -430,14 +431,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					/Users/daniel/Google,
-					Drive/Columbia/cellular,
-					networks,
-					mobile,
-					computing/6998GoogleMapsFramework,
-				);
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Venue/Venue-Prefix.pch";
 				INFOPLIST_FILE = "Venue/Venue-Info.plist";
@@ -451,14 +445,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					/Users/daniel/Google,
-					Drive/Columbia/cellular,
-					networks,
-					mobile,
-					computing/6998GoogleMapsFramework,
-				);
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Venue/Venue-Prefix.pch";
 				INFOPLIST_FILE = "Venue/Venue-Info.plist";

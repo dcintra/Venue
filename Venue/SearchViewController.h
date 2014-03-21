@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
+#import <CoreLocation/CoreLocation.h>
 #import "MapViewController.h"
+
 
 @interface SearchViewController : UIViewController <MKMapViewDelegate, CLLocationManagerDelegate, UISearchBarDelegate>
 @property (strong, nonatomic) CLLocationManager *locationManager;

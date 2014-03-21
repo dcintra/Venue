@@ -8,6 +8,7 @@
 
 #import "SearchViewController.h"
 
+
 @interface SearchViewController () 
 @end
 
@@ -39,10 +40,10 @@
     NSTimeInterval howRecent = [eventDate timeIntervalSinceNow];
     
     if (abs(howRecent) < 15.0) {
-        // If the event is recent, do something with it.
-        NSLog(@"latitude %+.6f, longitude %+.6f\n",
-              currentLocation.coordinate.latitude,
-              currentLocation.coordinate.longitude);
+//        // If the event is recent, do something with it.
+//        NSLog(@"latitude %+.6f, longitude %+.6f\n",
+//              currentLocation.coordinate.latitude,
+//              currentLocation.coordinate.longitude);
     }
 
     
@@ -68,11 +69,11 @@
     [self.view endEditing:YES];
 }
 
+//When search button is clicked pass the entry to the MapViewController to search for places close by and drop the pins
 -(void) searchBarSearchButtonClicked:(UISearchBar *)searchBar{
     
     query = searchBar.text;
     [self performSegueWithIdentifier:@"DisplaySearchResults" sender:self];
-
     
 }
 
@@ -83,13 +84,6 @@
 
 }
 
-//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-//    
-//    MapViewController *ViewController = [segue destinationViewController];
-//    ViewController.query = query;
-//    ViewController.currentLocation = currentLocation;
-//
-//}
 
 
 @end

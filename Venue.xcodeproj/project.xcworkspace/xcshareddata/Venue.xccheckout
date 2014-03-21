@@ -21,6 +21,8 @@
 	<dict>
 		<key>1516562A-7528-404B-A9E0-E031D5B00FDE</key>
 		<string>../../../../../Columbia/cellular networks mobile computing/6998GoogleMapsFramework</string>
+		<key>35765A75-2D92-4A16-9AD0-B20C497DFF68</key>
+		<string>../../../VenueFinder/6998GoogleMapsFramework</string>
 		<key>549C7518-6DEC-482F-ABA7-4EE82F892842</key>
 		<string>../..</string>
 	</dict>
@@ -37,6 +39,14 @@
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>1516562A-7528-404B-A9E0-E031D5B00FDE</string>
+			<key>IDESourceControlWCCName</key>
+			<string>6998GoogleMapsFramework</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>35765A75-2D92-4A16-9AD0-B20C497DFF68</string>
 			<key>IDESourceControlWCCName</key>
 			<string>6998GoogleMapsFramework</string>
 		</dict>
