@@ -31,6 +31,15 @@
 		6583723C18D8B1210009971B /* VenueTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6583723B18D8B1210009971B /* VenueTests.m */; };
 		6586109518DB5EC1007523C0 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6586109418DB5EC1007523C0 /* CoreLocation.framework */; };
 		65A4A9A718DB505600F07A20 /* VenueAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 65A4A9A618DB505600F07A20 /* VenueAnnotation.m */; };
+		65D6A20E18DCEFB90005FA45 /* TabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D6A20D18DCEFB90005FA45 /* TabBarViewController.m */; };
+		65F5D88418DE0F9C003DA830 /* PlacesAPISearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 65F5D88318DE0F9C003DA830 /* PlacesAPISearch.m */; };
+		65F5D88718DE166B003DA830 /* Venue.m in Sources */ = {isa = PBXBuildFile; fileRef = 65F5D88618DE166B003DA830 /* Venue.m */; };
+		65F5D93D18DEC4BF003DA830 /* SWTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 65F5D93118DEC320003DA830 /* SWTableViewCell.m */; };
+		65F5D93F18DEC506003DA830 /* NSMutableArray+SWUtilityButtons.m in Sources */ = {isa = PBXBuildFile; fileRef = 65F5D92A18DEC320003DA830 /* NSMutableArray+SWUtilityButtons.m */; };
+		65F5D94118DEC506003DA830 /* SWCellScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 65F5D92C18DEC320003DA830 /* SWCellScrollView.m */; };
+		65F5D94418DEC506003DA830 /* SWLongPressGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 65F5D92F18DEC320003DA830 /* SWLongPressGestureRecognizer.m */; };
+		65F5D94718DEC506003DA830 /* SWUtilityButtonTapGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 65F5D93318DEC320003DA830 /* SWUtilityButtonTapGestureRecognizer.m */; };
+		65F5D94918DEC506003DA830 /* SWUtilityButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 65F5D93518DEC320003DA830 /* SWUtilityButtonView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +49,20 @@
 			proxyType = 1;
 			remoteGlobalIDString = 6583720318D8B1210009971B;
 			remoteInfo = Venue;
+		};
+		65F5D91418DEC292003DA830 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 65F5D91018DEC292003DA830 /* SWTableViewCell.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = AF34B76517DEE2B200BD9082;
+			remoteInfo = SWTableViewCell;
+		};
+		65F5D91618DEC2D1003DA830 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 65F5D91018DEC292003DA830 /* SWTableViewCell.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = AF34B76417DEE2B100BD9082;
+			remoteInfo = SWTableViewCell;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -77,6 +100,46 @@
 		6586109418DB5EC1007523C0 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		65A4A9A518DB505600F07A20 /* VenueAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VenueAnnotation.h; sourceTree = "<group>"; };
 		65A4A9A618DB505600F07A20 /* VenueAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VenueAnnotation.m; sourceTree = "<group>"; };
+		65D6A20C18DCEFB90005FA45 /* TabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarViewController.h; sourceTree = "<group>"; };
+		65D6A20D18DCEFB90005FA45 /* TabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarViewController.m; sourceTree = "<group>"; };
+		65F5D88218DE0F9C003DA830 /* PlacesAPISearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlacesAPISearch.h; sourceTree = "<group>"; };
+		65F5D88318DE0F9C003DA830 /* PlacesAPISearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlacesAPISearch.m; sourceTree = "<group>"; };
+		65F5D88518DE166B003DA830 /* Venue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Venue.h; sourceTree = "<group>"; };
+		65F5D88618DE166B003DA830 /* Venue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Venue.m; sourceTree = "<group>"; };
+		65F5D91018DEC292003DA830 /* SWTableViewCell.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SWTableViewCell.xcodeproj; path = "../../../../Dropbox/Downloads/SWTableViewCell-master/SWTableViewCell.xcodeproj"; sourceTree = "<group>"; };
+		65F5D91918DEC320003DA830 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		65F5D91A18DEC320003DA830 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		65F5D91B18DEC320003DA830 /* check@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "check@2x.png"; sourceTree = "<group>"; };
+		65F5D91C18DEC320003DA830 /* clock@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clock@2x.png"; sourceTree = "<group>"; };
+		65F5D91D18DEC320003DA830 /* cross@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cross@2x.png"; sourceTree = "<group>"; };
+		65F5D91E18DEC320003DA830 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		65F5D91F18DEC320003DA830 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		65F5D92018DEC320003DA830 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		65F5D92218DEC320003DA830 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		65F5D92418DEC320003DA830 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		65F5D92518DEC320003DA830 /* list@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "list@2x.png"; sourceTree = "<group>"; };
+		65F5D92618DEC320003DA830 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		65F5D92718DEC320003DA830 /* MI.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MI.png; sourceTree = "<group>"; };
+		65F5D92918DEC320003DA830 /* NSMutableArray+SWUtilityButtons.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+SWUtilityButtons.h"; sourceTree = "<group>"; };
+		65F5D92A18DEC320003DA830 /* NSMutableArray+SWUtilityButtons.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+SWUtilityButtons.m"; sourceTree = "<group>"; };
+		65F5D92B18DEC320003DA830 /* SWCellScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SWCellScrollView.h; sourceTree = "<group>"; };
+		65F5D92C18DEC320003DA830 /* SWCellScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SWCellScrollView.m; sourceTree = "<group>"; };
+		65F5D92D18DEC320003DA830 /* SWConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SWConstants.h; sourceTree = "<group>"; };
+		65F5D92E18DEC320003DA830 /* SWLongPressGestureRecognizer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SWLongPressGestureRecognizer.h; sourceTree = "<group>"; };
+		65F5D92F18DEC320003DA830 /* SWLongPressGestureRecognizer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SWLongPressGestureRecognizer.m; sourceTree = "<group>"; };
+		65F5D93018DEC320003DA830 /* SWTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SWTableViewCell.h; sourceTree = "<group>"; };
+		65F5D93118DEC320003DA830 /* SWTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SWTableViewCell.m; sourceTree = "<group>"; };
+		65F5D93218DEC320003DA830 /* SWUtilityButtonTapGestureRecognizer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SWUtilityButtonTapGestureRecognizer.h; sourceTree = "<group>"; };
+		65F5D93318DEC320003DA830 /* SWUtilityButtonTapGestureRecognizer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SWUtilityButtonTapGestureRecognizer.m; sourceTree = "<group>"; };
+		65F5D93418DEC320003DA830 /* SWUtilityButtonView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SWUtilityButtonView.h; sourceTree = "<group>"; };
+		65F5D93518DEC320003DA830 /* SWUtilityButtonView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SWUtilityButtonView.m; sourceTree = "<group>"; };
+		65F5D93618DEC320003DA830 /* SWTableViewCell-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SWTableViewCell-Info.plist"; sourceTree = "<group>"; };
+		65F5D93718DEC320003DA830 /* SWTableViewCell-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SWTableViewCell-Prefix.pch"; sourceTree = "<group>"; };
+		65F5D93818DEC320003DA830 /* um.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = um.png; sourceTree = "<group>"; };
+		65F5D93918DEC320003DA830 /* UMTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UMTableViewCell.h; sourceTree = "<group>"; };
+		65F5D93A18DEC320003DA830 /* UMTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UMTableViewCell.m; sourceTree = "<group>"; };
+		65F5D93B18DEC320003DA830 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		65F5D93C18DEC320003DA830 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +173,7 @@
 		658371FB18D8B1210009971B = {
 			isa = PBXGroup;
 			children = (
+				65F5D91018DEC292003DA830 /* SWTableViewCell.xcodeproj */,
 				6583720F18D8B1210009971B /* Venue */,
 				6583723518D8B1210009971B /* VenueTests */,
 				6583720618D8B1210009971B /* Frameworks */,
@@ -129,6 +193,7 @@
 		6583720618D8B1210009971B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				65F5D91818DEC320003DA830 /* SWTableViewCell */,
 				6586109418DB5EC1007523C0 /* CoreLocation.framework */,
 				65821CA218D8BA1000DE2AA2 /* MapKit.framework */,
 				6583720718D8B1210009971B /* Foundation.framework */,
@@ -146,18 +211,13 @@
 				6583721818D8B1210009971B /* AppDelegate.h */,
 				6583721918D8B1210009971B /* AppDelegate.m */,
 				6583721B18D8B1210009971B /* Main.storyboard */,
-				6583698518D8B27100C988E1 /* SearchViewController.h */,
-				6583698618D8B27100C988E1 /* SearchViewController.m */,
-				6583698818D8B6F600C988E1 /* MapViewController.h */,
-				6583698918D8B6F600C988E1 /* MapViewController.m */,
+				65F5D88518DE166B003DA830 /* Venue.h */,
+				65F5D88618DE166B003DA830 /* Venue.m */,
+				65F5D88218DE0F9C003DA830 /* PlacesAPISearch.h */,
+				65F5D88318DE0F9C003DA830 /* PlacesAPISearch.m */,
 				65A4A9A518DB505600F07A20 /* VenueAnnotation.h */,
 				65A4A9A618DB505600F07A20 /* VenueAnnotation.m */,
-				6583698B18D8B72F00C988E1 /* ListViewController.h */,
-				6583698C18D8B72F00C988E1 /* ListViewController.m */,
-				65821C9F18D8B8A800DE2AA2 /* DetailViewController.h */,
-				65821CA018D8B8A800DE2AA2 /* DetailViewController.m */,
-				6547A23118D8C098003EDDAD /* FavoritesViewController.h */,
-				6547A23218D8C098003EDDAD /* FavoritesViewController.m */,
+				65D6A20B18DCC4B60005FA45 /* Controllers */,
 				6583722718D8B1210009971B /* Images.xcassets */,
 				6583721E18D8B1210009971B /* Venue.xcdatamodeld */,
 				6583721018D8B1210009971B /* Supporting Files */,
@@ -194,6 +254,82 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		65D6A20B18DCC4B60005FA45 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				65D6A20C18DCEFB90005FA45 /* TabBarViewController.h */,
+				65D6A20D18DCEFB90005FA45 /* TabBarViewController.m */,
+				6583698518D8B27100C988E1 /* SearchViewController.h */,
+				6583698618D8B27100C988E1 /* SearchViewController.m */,
+				6583698818D8B6F600C988E1 /* MapViewController.h */,
+				6583698918D8B6F600C988E1 /* MapViewController.m */,
+				6583698B18D8B72F00C988E1 /* ListViewController.h */,
+				6583698C18D8B72F00C988E1 /* ListViewController.m */,
+				65821C9F18D8B8A800DE2AA2 /* DetailViewController.h */,
+				65821CA018D8B8A800DE2AA2 /* DetailViewController.m */,
+				6547A23118D8C098003EDDAD /* FavoritesViewController.h */,
+				6547A23218D8C098003EDDAD /* FavoritesViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		65F5D91118DEC292003DA830 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				65F5D91518DEC292003DA830 /* SWTableViewCell.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		65F5D91818DEC320003DA830 /* SWTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				65F5D91918DEC320003DA830 /* AppDelegate.h */,
+				65F5D91A18DEC320003DA830 /* AppDelegate.m */,
+				65F5D91B18DEC320003DA830 /* check@2x.png */,
+				65F5D91C18DEC320003DA830 /* clock@2x.png */,
+				65F5D91D18DEC320003DA830 /* cross@2x.png */,
+				65F5D91E18DEC320003DA830 /* Default-568h@2x.png */,
+				65F5D91F18DEC320003DA830 /* Default.png */,
+				65F5D92018DEC320003DA830 /* Default@2x.png */,
+				65F5D92118DEC320003DA830 /* InfoPlist.strings */,
+				65F5D92318DEC320003DA830 /* MainStoryboard.storyboard */,
+				65F5D92518DEC320003DA830 /* list@2x.png */,
+				65F5D92618DEC320003DA830 /* main.m */,
+				65F5D92718DEC320003DA830 /* MI.png */,
+				65F5D92818DEC320003DA830 /* PodFiles */,
+				65F5D93618DEC320003DA830 /* SWTableViewCell-Info.plist */,
+				65F5D93718DEC320003DA830 /* SWTableViewCell-Prefix.pch */,
+				65F5D93818DEC320003DA830 /* um.png */,
+				65F5D93918DEC320003DA830 /* UMTableViewCell.h */,
+				65F5D93A18DEC320003DA830 /* UMTableViewCell.m */,
+				65F5D93B18DEC320003DA830 /* ViewController.h */,
+				65F5D93C18DEC320003DA830 /* ViewController.m */,
+			);
+			name = SWTableViewCell;
+			path = "../../../../Dropbox/Downloads/SWTableViewCell-master/SWTableViewCell";
+			sourceTree = "<group>";
+		};
+		65F5D92818DEC320003DA830 /* PodFiles */ = {
+			isa = PBXGroup;
+			children = (
+				65F5D92918DEC320003DA830 /* NSMutableArray+SWUtilityButtons.h */,
+				65F5D92A18DEC320003DA830 /* NSMutableArray+SWUtilityButtons.m */,
+				65F5D92B18DEC320003DA830 /* SWCellScrollView.h */,
+				65F5D92C18DEC320003DA830 /* SWCellScrollView.m */,
+				65F5D92D18DEC320003DA830 /* SWConstants.h */,
+				65F5D92E18DEC320003DA830 /* SWLongPressGestureRecognizer.h */,
+				65F5D92F18DEC320003DA830 /* SWLongPressGestureRecognizer.m */,
+				65F5D93018DEC320003DA830 /* SWTableViewCell.h */,
+				65F5D93118DEC320003DA830 /* SWTableViewCell.m */,
+				65F5D93218DEC320003DA830 /* SWUtilityButtonTapGestureRecognizer.h */,
+				65F5D93318DEC320003DA830 /* SWUtilityButtonTapGestureRecognizer.m */,
+				65F5D93418DEC320003DA830 /* SWUtilityButtonView.h */,
+				65F5D93518DEC320003DA830 /* SWUtilityButtonView.m */,
+			);
+			path = PodFiles;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -208,6 +344,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				65F5D91718DEC2D1003DA830 /* PBXTargetDependency */,
 			);
 			name = Venue;
 			productName = Venue;
@@ -264,6 +401,12 @@
 			mainGroup = 658371FB18D8B1210009971B;
 			productRefGroup = 6583720518D8B1210009971B /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 65F5D91118DEC292003DA830 /* Products */;
+					ProjectRef = 65F5D91018DEC292003DA830 /* SWTableViewCell.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				6583720318D8B1210009971B /* Venue */,
@@ -271,6 +414,16 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		65F5D91518DEC292003DA830 /* SWTableViewCell.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = SWTableViewCell.app;
+			remoteRef = 65F5D91418DEC292003DA830 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		6583720218D8B1210009971B /* Resources */ = {
@@ -298,6 +451,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65F5D93F18DEC506003DA830 /* NSMutableArray+SWUtilityButtons.m in Sources */,
+				65F5D94118DEC506003DA830 /* SWCellScrollView.m in Sources */,
+				65F5D94418DEC506003DA830 /* SWLongPressGestureRecognizer.m in Sources */,
+				65F5D94718DEC506003DA830 /* SWUtilityButtonTapGestureRecognizer.m in Sources */,
+				65F5D94918DEC506003DA830 /* SWUtilityButtonView.m in Sources */,
+				65F5D93D18DEC4BF003DA830 /* SWTableViewCell.m in Sources */,
+				65D6A20E18DCEFB90005FA45 /* TabBarViewController.m in Sources */,
+				65F5D88418DE0F9C003DA830 /* PlacesAPISearch.m in Sources */,
 				6583721A18D8B1210009971B /* AppDelegate.m in Sources */,
 				6583722018D8B1210009971B /* Venue.xcdatamodeld in Sources */,
 				6583698D18D8B72F00C988E1 /* ListViewController.m in Sources */,
@@ -305,6 +466,7 @@
 				6583698718D8B27100C988E1 /* SearchViewController.m in Sources */,
 				6583721618D8B1210009971B /* main.m in Sources */,
 				6547A23318D8C098003EDDAD /* FavoritesViewController.m in Sources */,
+				65F5D88718DE166B003DA830 /* Venue.m in Sources */,
 				65821CA118D8B8A800DE2AA2 /* DetailViewController.m in Sources */,
 				65A4A9A718DB505600F07A20 /* VenueAnnotation.m in Sources */,
 			);
@@ -325,6 +487,11 @@
 			isa = PBXTargetDependency;
 			target = 6583720318D8B1210009971B /* Venue */;
 			targetProxy = 6583723318D8B1210009971B /* PBXContainerItemProxy */;
+		};
+		65F5D91718DEC2D1003DA830 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SWTableViewCell;
+			targetProxy = 65F5D91618DEC2D1003DA830 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -351,6 +518,22 @@
 				6583723918D8B1210009971B /* en */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		65F5D92118DEC320003DA830 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				65F5D92218DEC320003DA830 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		65F5D92318DEC320003DA830 /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				65F5D92418DEC320003DA830 /* en */,
+			);
+			name = MainStoryboard.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

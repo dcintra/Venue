@@ -15,12 +15,13 @@
 @property (nonatomic, readonly) CLLocationCoordinate2D coordinate;
 @property NSString *name;
 @property NSString *address;
-@property NSNumber *rating;
-@property NSString *isOpen;
+@property NSString *rating;
+@property BOOL isOpen;
 @property NSString *photoURL;
+@property NSString *price;
 @property NSArray *type;
 
 
-- initWithName:(NSString*)placename address:(NSString*)addr coordinate:(CLLocationCoordinate2D)coords photoURL:(NSString*)pic;
-- initWithName:(NSString*)placename address:(NSString*)addr coordinate:(CLLocationCoordinate2D)coords;
+- initWithName:(NSString*)placename address:(NSString*)addr coordinate:(CLLocationCoordinate2D)coords photoURL:(NSString*)pic rating:(NSString*) ratingLevel isOpen:(BOOL) openHours price:(NSString*) priceLevel;
+- initWithName:(NSString*)placename address:(NSString*)addr coordinate:(CLLocationCoordinate2D)coords rating:(NSString*) ratingLevel isOpen:(BOOL) openHours price:(NSString*) priceLevel;
 @end

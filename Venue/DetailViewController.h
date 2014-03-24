@@ -13,8 +13,9 @@
 
 @property NSString *name;
 @property NSString *address;
-@property NSNumber *rating;
-@property NSString *isOpen;
+@property NSString *rating;
+@property BOOL isOpen;
 @property NSString *photoURL;
+@property NSString *price;
 
 @end

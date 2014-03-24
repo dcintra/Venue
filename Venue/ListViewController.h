@@ -7,7 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Venue.h"
+#import "TabBarViewController.h"
+#import "SWTableViewCell.h"
 
-@interface ListViewController : UIViewController
+
+
+@interface ListViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, SWTableViewCellDelegate>
+
+@property NSMutableArray *venueArray;
+@property NSMutableArray *sortedVenueArray;
+@property (nonatomic) id <SWTableViewCellDelegate> delegate;
 
 @end

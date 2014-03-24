@@ -7,6 +7,7 @@
 //
 
 #import "SearchViewController.h"
+#import "TabBarViewController.h"
 
 
 @interface SearchViewController () 
@@ -15,12 +16,12 @@
 @implementation SearchViewController
 
 @synthesize locationManager, startLocation, currentLocation, query;
+@synthesize apiSearch;
+@synthesize venueArray;
 
 - (void)awakeFromNib {
     
     //put logo image in the navigationBar
-    
-    
     
 }
 
@@ -49,7 +50,6 @@
     
 }
 
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -62,8 +62,6 @@
 }
 
 
-
-
 //remove keyboard when user touches the screen elsewhere
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     [self.view endEditing:YES];
@@ -73,15 +71,25 @@
 -(void) searchBarSearchButtonClicked:(UISearchBar *)searchBar{
     
     query = searchBar.text;
-    [self performSegueWithIdentifier:@"DisplaySearchResults" sender:self];
+    
+    apiSearch = [PlacesAPISearch new];
+    venueArray = [NSMutableArray new];
+    
+    venueArray = [apiSearch queryGooglePlaces:query withLatitude:currentLocation.coordinate.latitude withLongitude:currentLocation.coordinate.longitude currentLocation:currentLocation];
+    
+    [self performSegueWithIdentifier:@"SearchPerformed" sender:self];
     
 }
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-     MapViewController *ViewController = [segue destinationViewController];
-    ViewController.query = query;
-    ViewController.currentLocation = currentLocation;
 
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    
+    if ([[segue identifier] isEqualToString:@"SearchPerformed"]){
+        TabBarViewController *tabBarController = segue.destinationViewController;
+        tabBarController.venueArray = self.venueArray;
+        tabBarController.currentLocation = self.currentLocation;
+    }
 }
 
 

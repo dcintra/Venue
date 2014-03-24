@@ -10,11 +10,15 @@
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import "MapViewController.h"
+#import "ListViewController.h"
+#import "PlacesAPISearch.h"
+#import "Venue.h"
 
-
-@interface SearchViewController : UIViewController <MKMapViewDelegate, CLLocationManagerDelegate, UISearchBarDelegate>
+@interface SearchViewController : UIViewController <MKMapViewDelegate, CLLocationManagerDelegate, UISearchBarDelegate, UITabBarControllerDelegate>
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property CLLocation *currentLocation, *startLocation;
 @property (strong, nonatomic) NSString *query;
+@property PlacesAPISearch *apiSearch;
+@property NSMutableArray *venueArray;
 
 @end

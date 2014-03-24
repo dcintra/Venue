@@ -10,13 +10,20 @@
 
 @interface DetailViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *placeName;
+@property (weak, nonatomic) IBOutlet UIImageView *venuePhoto;
+@property (weak, nonatomic) IBOutlet UILabel *addressOutlet;
+@property (weak, nonatomic) IBOutlet UILabel *priceLevel;
+@property (weak, nonatomic) IBOutlet UILabel *ratingOutlet;
+@property (weak, nonatomic) IBOutlet UILabel *isOpenOutlet;
 
 
 @end
 
-@implementation DetailViewController
+@implementation DetailViewController{
+    dispatch_queue_t _photo_queue;
+}
 
-@synthesize name, address, isOpen, rating, photoURL, placeName;
+@synthesize name, address, isOpen, rating, photoURL, placeName, price;
 
 - (void)awakeFromNib {
     
@@ -37,9 +44,35 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+
+    
+    if(self.isOpen){
+        self.isOpenOutlet.text = @"Yup";
+    } else{
+        self.isOpenOutlet.text = @"Nope";
+    }
     
     self.placeName.text = name;
-    NSLog(@"Hello I'm here");
+    self.addressOutlet.text = address;
+    self.ratingOutlet.text = [NSString stringWithFormat:@"%@",self.rating];
+    self.priceLevel.text = [NSString stringWithFormat:@"%@",self.price];
+    
+    if (self.photoURL){
+        NSLog(@"PHOTO URL: %@",self.photoURL);
+        
+        _photo_queue = dispatch_queue_create("getImage", nil);
+        dispatch_async(_photo_queue, ^{
+            
+            UIImage *photo=[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:self.photoURL]]];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                NSLog(@"finished processing images");
+                self.venuePhoto.image = photo;
+            });
+        });
+        
+    }
+    
+    
 }
 
 - (void)didReceiveMemoryWarning

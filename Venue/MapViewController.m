@@ -8,23 +8,35 @@
 
 #import "MapViewController.h"
 #import "DetailViewController.h"
+#import "SearchViewController.h"
 
 
-@interface MapViewController () <MKMapViewDelegate>
+
+
+@interface MapViewController () <MKMapViewDelegate, UITabBarControllerDelegate>
+
 @property NSString *KEY;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
+
 @end
+
 
 @implementation MapViewController {
     dispatch_queue_t _pic_queue;
 }
-@synthesize query, currentLocation, placeObject;
 
+
+
+
+@synthesize currentLocation, placeObject;
+@synthesize venueArray;
 
 -(void)setMapView:(MKMapView *)mapView{
     _mapView = mapView;
     self.mapView.delegate = self;
     [self.mapView setShowsUserLocation:YES];
+    TabBarViewController *tabBarController = (TabBarViewController *)self.tabBarController;
+    currentLocation = tabBarController.currentLocation;
     MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(currentLocation.coordinate, 800, 800);
     [mapView setRegion:[self.mapView regionThatFits:region] animated:YES];
 }
@@ -43,50 +55,24 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+//    UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithTitle: @"Add" style: UIBarButtonItemStylePlain target: self action: @selector(saveButton:)];
+    
+    UIBarButtonItem *leftButton = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"ic_action_search_light"] style:UIBarButtonItemStylePlain target:self action:@selector(saveButton:)];
+    
+    self.navigationItem.leftBarButtonItem = leftButton;
     // Check is query and coordinates have been passed along correctly
-    NSLog(@"%@ latitude: %f",query, currentLocation.coordinate.latitude);
-    
-    
-    [self queryGooglePlaces:query];
-    
+    TabBarViewController *tabBar = (TabBarViewController *)self.tabBarController;
+    venueArray = tabBar.venueArray;
+
+    [self plotAnnotations:venueArray];
 }
 
-
--(void) queryGooglePlaces: (NSString *) googleType {
-    // Build the url string to send to Google
-    NSString *typedQuery = [googleType stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+-(void) saveButton: (id)sender{
+    NSLog(@"Hello");
+    [self performSegueWithIdentifier:@"SegueIdentifier" sender:sender];
     
-    NSString *url = [NSString stringWithFormat:@"https://maps.googleapis.com/maps/api/place/textsearch/json?query=%@&location=%f,%f&radius=500&sensor=true&key=%@", typedQuery, currentLocation.coordinate.latitude, currentLocation.coordinate.longitude, GOOGLE_API_KEY];
-    
-    NSLog(@"url: %@", url);
-    
-    //Formulate the string as a URL object.
-    NSURL *googleRequestURL=[NSURL URLWithString:url];
-    
-    // Retrieve the results of the URL.
-    dispatch_async(kBgQueue, ^{
-        NSData* data = [NSData dataWithContentsOfURL: googleRequestURL];
-        [self performSelectorOnMainThread:@selector(fetchedData:) withObject:data waitUntilDone:YES];
-    });
 }
-
--(void)fetchedData:(NSData *)responseData {
-    //parse out the json data
-    NSError* error;
-    NSDictionary* json = [NSJSONSerialization
-                          JSONObjectWithData:responseData
-                          
-                          options:kNilOptions
-                          error:&error];
-    
-    //The results from Google will be an array obtained from the NSDictionary object with the key "results".
-    NSArray* places = [json objectForKey:@"results"];
-    
-    //Write out the data to the console.
-    NSLog(@"Google Data: %@", places);
-    [self plotAnnotations:places];
-}
-
 
 
 -(void) plotAnnotations: (NSArray *) data {
@@ -98,38 +84,39 @@
     
     for (int i=0; i<[data count]; i++) {
         //Retrieve the NSDictionary object in each index of the array.
-        NSDictionary* place = [data objectAtIndex:i];
-        // 3 - There is a specific NSDictionary object that gives us the location info.
-        NSDictionary *geo = [place objectForKey:@"geometry"];
-        // Get the lat and long for the location.
-        NSDictionary *loc = [geo objectForKey:@"location"];
-        // 4 - Get your name and address info for adding to a pin.
-        NSString *name=[place objectForKey:@"name"];
-        
-        NSString *address=[place objectForKey:@"formatted_address"];
-        
+        Venue *place= [data objectAtIndex:i];
+
         CLLocationCoordinate2D placeCoord;
         // Set the lat and long.
-        placeCoord.latitude=[[loc objectForKey:@"lat"] doubleValue];
-        placeCoord.longitude=[[loc objectForKey:@"lng"] doubleValue];
+        placeCoord.latitude= place.coordinate.latitude;
+        placeCoord.longitude= place.coordinate.longitude;
         
-        if ([place objectForKey:@"photos"]){
-            NSDictionary *photoDetail = [place objectForKey:@"photos"];
-            if([photoDetail valueForKeyPath:@"photo_reference"][0]){
-                NSString *photoReference=[photoDetail valueForKeyPath:@"photo_reference"][0];
-                NSLog(@"PHOTO REFERENCE: %@", photoReference);
-                NSString *photoUrl = [NSString stringWithFormat:@"https://maps.googleapis.com/maps/api/place/photo?maxwidth=50&photoreference=%@&sensor=true&key=%@",photoReference, GOOGLE_API_KEY];
-                NSLog(@"VENUE WITH PHOTO URL: %@", photoUrl);
-                // 5 - Create a new annotation.
-                placeObject = [[VenueAnnotation alloc]initWithName:name address:address coordinate:placeCoord photoURL:photoUrl];
-            }
-           
-        } else {
-            placeObject = [[VenueAnnotation alloc]initWithName:name address:address coordinate:placeCoord];
+        //Place name address
+        NSString *name= place.name;
+        NSString *address= place.address;
+        
+        //Rating
+        NSString *rating= place.rating;
+        // Opening Hours
+        BOOL isopen = place.isOpen;
+
+        //PriceLevel
+        NSString *priceLevel= place.price;
+        
+        //PhotoURL
+        NSString *photoUrl = place.photoURL;
+        
+        if (place.photoURL){
+            placeObject = [[VenueAnnotation alloc]initWithName:name address:address coordinate:placeCoord photoURL:photoUrl rating:rating isOpen:isopen price:priceLevel];
+            } else {
+            placeObject = [[VenueAnnotation alloc]initWithName:name address:address coordinate:placeCoord rating:rating isOpen:isopen price:priceLevel];
         }
             
             [self.mapView addAnnotation:placeObject];
     }
+    
+   
+    
 }
 
 -(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation {
@@ -177,8 +164,6 @@
         if (venue){
             NSLog(@"PHOTO URL: %@",venue.photoURL);
             
-            
-            
             _pic_queue = dispatch_queue_create("imageFetcher", nil);
             dispatch_async(_pic_queue, ^{
                 
@@ -209,6 +194,11 @@
             if([vc isKindOfClass:[DetailViewController class]]){
                 DetailViewController *dvc = (DetailViewController *) vc;
                 dvc.name = venue.name;
+                dvc.address = venue.address;
+                dvc.photoURL = venue.photoURL;
+                dvc.rating = venue.rating;
+                dvc.isOpen = venue.isOpen;
+                dvc.price = venue.price;
             }
         }
     }
@@ -221,10 +211,13 @@
     }
 }
 
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
 }
 
 
+- (IBAction)searchButton:(id)sender {
+}
 @end
