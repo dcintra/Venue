@@ -108,6 +108,22 @@
         
         if (place.photoURL){
             placeObject = [[VenueAnnotation alloc]initWithName:name address:address coordinate:placeCoord photoURL:photoUrl rating:rating isOpen:isopen price:priceLevel];
+            _pic_queue = dispatch_queue_create("imageFetcher", nil);
+            dispatch_async(_pic_queue, ^{
+                
+                UIImage *photo=[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:photoUrl]]];
+                CGSize destinationSize = CGSizeMake(40, 40);
+                UIGraphicsBeginImageContext(destinationSize);
+                [photo drawInRect:CGRectMake(0,0,destinationSize.width,destinationSize.height)];
+                UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+                UIGraphicsEndImageContext();
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    NSLog(@"finished adding images to object");
+                    
+                    place.image = newImage;
+                });
+            });
+                
             } else {
             placeObject = [[VenueAnnotation alloc]initWithName:name address:address coordinate:placeCoord rating:rating isOpen:isopen price:priceLevel];
         }

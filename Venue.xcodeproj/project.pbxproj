@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6547A23318D8C098003EDDAD /* FavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6547A23218D8C098003EDDAD /* FavoritesViewController.m */; };
+		6533EF8818E381DA0098FD5A /* ImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 6533EF8718E381DA0098FD5A /* ImageDownloader.m */; };
 		65821CA118D8B8A800DE2AA2 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65821CA018D8B8A800DE2AA2 /* DetailViewController.m */; };
 		65821CA318D8BA1000DE2AA2 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65821CA218D8BA1000DE2AA2 /* MapKit.framework */; };
 		6583698718D8B27100C988E1 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6583698618D8B27100C988E1 /* SearchViewController.m */; };
@@ -40,6 +40,8 @@
 		65F5D94418DEC506003DA830 /* SWLongPressGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 65F5D92F18DEC320003DA830 /* SWLongPressGestureRecognizer.m */; };
 		65F5D94718DEC506003DA830 /* SWUtilityButtonTapGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 65F5D93318DEC320003DA830 /* SWUtilityButtonTapGestureRecognizer.m */; };
 		65F5D94918DEC506003DA830 /* SWUtilityButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 65F5D93518DEC320003DA830 /* SWUtilityButtonView.m */; };
+		65F5D99918E0DFC9003DA830 /* Favorites.m in Sources */ = {isa = PBXBuildFile; fileRef = 65F5D99818E0DFC9003DA830 /* Favorites.m */; };
+		65F5D99C18E33E41003DA830 /* FavoritesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65F5D99B18E33E41003DA830 /* FavoritesTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,8 +69,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		6547A23118D8C098003EDDAD /* FavoritesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesViewController.h; sourceTree = "<group>"; };
-		6547A23218D8C098003EDDAD /* FavoritesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesViewController.m; sourceTree = "<group>"; };
+		6533EF8618E381DA0098FD5A /* ImageDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageDownloader.h; sourceTree = "<group>"; };
+		6533EF8718E381DA0098FD5A /* ImageDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageDownloader.m; sourceTree = "<group>"; };
 		65821C9F18D8B8A800DE2AA2 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		65821CA018D8B8A800DE2AA2 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		65821CA218D8BA1000DE2AA2 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -140,6 +142,11 @@
 		65F5D93A18DEC320003DA830 /* UMTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UMTableViewCell.m; sourceTree = "<group>"; };
 		65F5D93B18DEC320003DA830 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		65F5D93C18DEC320003DA830 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		65F5D99618E0DFAC003DA830 /* Venue 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Venue 2.xcdatamodel"; sourceTree = "<group>"; };
+		65F5D99718E0DFC9003DA830 /* Favorites.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Favorites.h; sourceTree = "<group>"; };
+		65F5D99818E0DFC9003DA830 /* Favorites.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Favorites.m; sourceTree = "<group>"; };
+		65F5D99A18E33E41003DA830 /* FavoritesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FavoritesTableViewController.h; path = ../FavoritesTableViewController.h; sourceTree = "<group>"; };
+		65F5D99B18E33E41003DA830 /* FavoritesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FavoritesTableViewController.m; path = ../FavoritesTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,15 +218,9 @@
 				6583721818D8B1210009971B /* AppDelegate.h */,
 				6583721918D8B1210009971B /* AppDelegate.m */,
 				6583721B18D8B1210009971B /* Main.storyboard */,
-				65F5D88518DE166B003DA830 /* Venue.h */,
-				65F5D88618DE166B003DA830 /* Venue.m */,
-				65F5D88218DE0F9C003DA830 /* PlacesAPISearch.h */,
-				65F5D88318DE0F9C003DA830 /* PlacesAPISearch.m */,
-				65A4A9A518DB505600F07A20 /* VenueAnnotation.h */,
-				65A4A9A618DB505600F07A20 /* VenueAnnotation.m */,
+				65F5D99518E0BC90003DA830 /* CustomClasses */,
 				65D6A20B18DCC4B60005FA45 /* Controllers */,
-				6583722718D8B1210009971B /* Images.xcassets */,
-				6583721E18D8B1210009971B /* Venue.xcdatamodeld */,
+				65F5D99418E0BC78003DA830 /* CoreData */,
 				6583721018D8B1210009971B /* Supporting Files */,
 			);
 			path = Venue;
@@ -232,6 +233,7 @@
 				6583721218D8B1210009971B /* InfoPlist.strings */,
 				6583721518D8B1210009971B /* main.m */,
 				6583721718D8B1210009971B /* Venue-Prefix.pch */,
+				6583722718D8B1210009971B /* Images.xcassets */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -267,8 +269,8 @@
 				6583698C18D8B72F00C988E1 /* ListViewController.m */,
 				65821C9F18D8B8A800DE2AA2 /* DetailViewController.h */,
 				65821CA018D8B8A800DE2AA2 /* DetailViewController.m */,
-				6547A23118D8C098003EDDAD /* FavoritesViewController.h */,
-				6547A23218D8C098003EDDAD /* FavoritesViewController.m */,
+				65F5D99A18E33E41003DA830 /* FavoritesTableViewController.h */,
+				65F5D99B18E33E41003DA830 /* FavoritesTableViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -328,6 +330,31 @@
 				65F5D93518DEC320003DA830 /* SWUtilityButtonView.m */,
 			);
 			path = PodFiles;
+			sourceTree = "<group>";
+		};
+		65F5D99418E0BC78003DA830 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				6583721E18D8B1210009971B /* Venue.xcdatamodeld */,
+				65F5D99718E0DFC9003DA830 /* Favorites.h */,
+				65F5D99818E0DFC9003DA830 /* Favorites.m */,
+			);
+			name = CoreData;
+			sourceTree = "<group>";
+		};
+		65F5D99518E0BC90003DA830 /* CustomClasses */ = {
+			isa = PBXGroup;
+			children = (
+				65F5D88218DE0F9C003DA830 /* PlacesAPISearch.h */,
+				65F5D88318DE0F9C003DA830 /* PlacesAPISearch.m */,
+				6533EF8618E381DA0098FD5A /* ImageDownloader.h */,
+				6533EF8718E381DA0098FD5A /* ImageDownloader.m */,
+				65A4A9A518DB505600F07A20 /* VenueAnnotation.h */,
+				65A4A9A618DB505600F07A20 /* VenueAnnotation.m */,
+				65F5D88518DE166B003DA830 /* Venue.h */,
+				65F5D88618DE166B003DA830 /* Venue.m */,
+			);
+			name = CustomClasses;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -453,19 +480,21 @@
 			files = (
 				65F5D93F18DEC506003DA830 /* NSMutableArray+SWUtilityButtons.m in Sources */,
 				65F5D94118DEC506003DA830 /* SWCellScrollView.m in Sources */,
+				6533EF8818E381DA0098FD5A /* ImageDownloader.m in Sources */,
 				65F5D94418DEC506003DA830 /* SWLongPressGestureRecognizer.m in Sources */,
 				65F5D94718DEC506003DA830 /* SWUtilityButtonTapGestureRecognizer.m in Sources */,
+				65F5D99C18E33E41003DA830 /* FavoritesTableViewController.m in Sources */,
 				65F5D94918DEC506003DA830 /* SWUtilityButtonView.m in Sources */,
 				65F5D93D18DEC4BF003DA830 /* SWTableViewCell.m in Sources */,
 				65D6A20E18DCEFB90005FA45 /* TabBarViewController.m in Sources */,
 				65F5D88418DE0F9C003DA830 /* PlacesAPISearch.m in Sources */,
 				6583721A18D8B1210009971B /* AppDelegate.m in Sources */,
 				6583722018D8B1210009971B /* Venue.xcdatamodeld in Sources */,
+				65F5D99918E0DFC9003DA830 /* Favorites.m in Sources */,
 				6583698D18D8B72F00C988E1 /* ListViewController.m in Sources */,
 				6583698A18D8B6F600C988E1 /* MapViewController.m in Sources */,
 				6583698718D8B27100C988E1 /* SearchViewController.m in Sources */,
 				6583721618D8B1210009971B /* main.m in Sources */,
-				6547A23318D8C098003EDDAD /* FavoritesViewController.m in Sources */,
 				65F5D88718DE166B003DA830 /* Venue.m in Sources */,
 				65821CA118D8B8A800DE2AA2 /* DetailViewController.m in Sources */,
 				65A4A9A718DB505600F07A20 /* VenueAnnotation.m in Sources */,
@@ -713,6 +742,7 @@
 		6583721E18D8B1210009971B /* Venue.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				65F5D99618E0DFAC003DA830 /* Venue 2.xcdatamodel */,
 				6583721F18D8B1210009971B /* Venue.xcdatamodel */,
 			);
 			currentVersion = 6583721F18D8B1210009971B /* Venue.xcdatamodel */;

@@ -54,7 +54,12 @@
     
     self.placeName.text = name;
     self.addressOutlet.text = address;
-    self.ratingOutlet.text = [NSString stringWithFormat:@"%@",self.rating];
+    if (self.rating){
+        self.ratingOutlet.text = [NSString stringWithFormat:@"%@",self.rating];
+    } else{
+        self.ratingOutlet.text = @"No ratings. Take a chance?";
+    }
+    
     self.priceLevel.text = [NSString stringWithFormat:@"%@",self.price];
     
     if (self.photoURL){

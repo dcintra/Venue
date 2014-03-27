@@ -8,6 +8,8 @@
 
 #import "ListViewController.h"
 #import "MapViewController.h"
+#import "Favorites.h"
+
 
 
 @interface ListViewController ()
@@ -20,6 +22,8 @@
 
 @synthesize venueArray, sortedVenueArray;
 @synthesize delegate;
+@synthesize managedObjectContext;
+@synthesize managedObjectModel;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -36,63 +40,136 @@
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+   
     static NSString *cellIdentifier = @"Cell";
-    
     SWTableViewCell *cell = (SWTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    if (cell == nil) {
-        NSMutableArray *leftUtilityButtons = [NSMutableArray new];
-        [leftUtilityButtons sw_addUtilityButtonWithColor:[UIColor grayColor] icon:[UIImage imageNamed:@"ic_action_favorite"]];
-    cell = [[SWTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
-                                      reuseIdentifier:cellIdentifier
-                                  containingTableView:tableView
-                               leftUtilityButtons:leftUtilityButtons
-                              rightUtilityButtons:nil];
-        cell.delegate = self;
+    [cell.imageView setImage:[UIImage imageNamed:@"ic_action_place"]];
+    
+    
+    id appDelegate = [[UIApplication sharedApplication] delegate];
+    managedObjectContext = [appDelegate managedObjectContext];
+    
+
+    NSString *placeName = [venueArray[indexPath.row] name];
+    NSString *placeAddress = [venueArray[indexPath.row] address];
+    NSString *name = [self nameofExistingVenue:managedObjectContext withName:placeName];
+    NSMutableArray *indexArray = [NSMutableArray new];
+    
+    
+    if([placeName isEqualToString:name]){
+        [indexArray addObject:[NSNumber numberWithInt:indexPath.row]];
+         NSLog(@"items are in index: %@", [indexArray description]);
         
+        if (cell == nil) {
+            NSMutableArray *leftUtilityButtons = [NSMutableArray new];
+            [leftUtilityButtons sw_addUtilityButtonWithColor:[UIColor greenColor] icon:[UIImage imageNamed:@"ic_action_favorite"]];
+            cell = [[SWTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
+                                          reuseIdentifier:cellIdentifier
+                                      containingTableView:tableView
+                                       leftUtilityButtons:leftUtilityButtons
+                                      rightUtilityButtons:nil];
+            cell.delegate = self;
+            
+        }
+        
+    } else{
+        if (cell == nil) {
+            NSMutableArray *leftUtilityButtons = [NSMutableArray new];
+            [leftUtilityButtons sw_addUtilityButtonWithColor:[UIColor grayColor] icon:[UIImage imageNamed:@"ic_action_favorite"]];
+            cell = [[SWTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
+                                          reuseIdentifier:cellIdentifier
+                                      containingTableView:tableView
+                                       leftUtilityButtons:leftUtilityButtons
+                                      rightUtilityButtons:nil];
+            cell.delegate = self;
+            
+        }
     }
     
-    cell.textLabel.text = [venueArray[indexPath.row] name];
-    cell.detailTextLabel.text = [venueArray[indexPath.row] address];
+    UIImage *photo = [venueArray[indexPath.row] image];
+    UIImageView *New = [[UIImageView alloc] initWithFrame:CGRectMake(20, 20, 100, 100)];
+    
+    New.image = photo;
+    
+    [cell.imageView setImage:photo];
+    
+    cell.textLabel.text = placeName;
+    cell.detailTextLabel.text = placeAddress;
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     cell.selectionStyle = UITableViewCellSelectionStyleBlue;
-    if ([venueArray[indexPath.row] photoURL]){
-        
-        _photo_queue = dispatch_queue_create("imageFetcher", nil);
-        dispatch_async(_photo_queue, ^{
-            
-            UIImage *photo=[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[venueArray[indexPath.row] photoURL]]]];
-            
-            CGSize destinationSize = CGSizeMake(40, 40);
-            UIGraphicsBeginImageContext(destinationSize);
-            [photo drawInRect:CGRectMake(0,0,destinationSize.width,destinationSize.height)];
-            UIImageView *New = [[UIImageView alloc] initWithFrame:CGRectMake(20, 20, 100, 100)];
-            UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
-            UIGraphicsEndImageContext();
-            New.image = newImage;
-            dispatch_async(dispatch_get_main_queue(), ^{
-                NSLog(@"processing images done");
-                [cell.imageView setImage:newImage];
-            });
-        });
-        
-    }
     
+
+    
+
     return cell;
 }
 
 - (void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerLeftUtilityButtonWithIndex:(NSInteger)index {
     
+    
+    id appDelegate = [[UIApplication sharedApplication] delegate];
+    managedObjectContext = [appDelegate managedObjectContext];
+    managedObjectModel = [appDelegate managedObjectModel];
+
+    NSFetchRequest *fetchAll = [managedObjectModel fetchRequestTemplateForName:@"FetchAll"];
+    NSError *error = nil;
+    NSArray *fetchedObj = [managedObjectContext executeFetchRequest:fetchAll error:&error];
+    
+    if (fetchedObj == nil) {
+        NSLog(@"Problem fetching data");
+    } else{
+        for (Favorites *fav in fetchedObj) {
+            NSLog(@"Name: %@ and Address: %@", fav.name, fav.address);
+        }
+    }
+    
+    
     if(index == 0){
-        //Cell is active
+//SAVE
         if([cell.leftUtilityButtons[0] backgroundColor]== [UIColor grayColor]){
+            //store venue information
+            Favorites *favoriteVenue= [NSEntityDescription
+                                       insertNewObjectForEntityForName:@"Favorites"
+                                       inManagedObjectContext:[self managedObjectContext]];
+            
+            favoriteVenue.name = cell.textLabel.text;
+            favoriteVenue.address = cell.detailTextLabel.text;
+
+            if(! [[self managedObjectContext] save:&error]){
+                NSLog(@"Error occurred when saving %@", error);
+            }
+            
+            //change color of button when saved
             [cell.leftUtilityButtons[0] setBackgroundColor:[UIColor greenColor]];
-        //Deactivate cell
-        }else{
+        }
+//DELETE
+        else {
+            
+            NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+            NSEntityDescription *entity = [NSEntityDescription entityForName:@"Favorites" inManagedObjectContext:managedObjectContext];
+            [fetchRequest setEntity:entity];
+            // Specify criteria for filtering which objects to fetch
+            NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name == %@ AND address == %@", cell.textLabel.text,cell.detailTextLabel.text];
+            [fetchRequest setPredicate:predicate];
+            
+            NSArray *fetchedObjects = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
+            if (fetchedObjects == nil) {
+                NSLog(@"Problem fetching data");
+            }
+            
+            for(NSManagedObject *mOC in fetchedObjects){
+                [managedObjectContext deleteObject:mOC];
+            }
+            
+            
+            if(! [managedObjectContext save:&error]){
+                NSLog(@"Error occurred when deleting object %@", error);
+            }
             [cell.leftUtilityButtons[0] setBackgroundColor:[UIColor grayColor]];
             
         }
     }
+    
 }
 
 
@@ -119,6 +196,53 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+//Check if venue exists in CoreData
+-(BOOL) venueExistsInFavorites: (NSManagedObjectContext *) mOC withName: (NSString *) venueName andAddress: (NSString *) add{
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Favorites" inManagedObjectContext:managedObjectContext];
+    [fetchRequest setEntity:entity];
+    // Specify criteria for filtering which objects to fetch
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name == %@ AND address == %@", venueName, add];
+    [fetchRequest setPredicate:predicate];
+    
+    NSError *error = nil;
+    NSArray *fetchedObjects = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    if(fetchedObjects == nil){
+        return NO;
+    } else{
+        return YES;
+    }
+}
+
+//Check if venue exists in CoreData
+-(NSString *) nameofExistingVenue: (NSManagedObjectContext *) mOC withName: (NSString *) placeName{
+    
+    NSString *name;
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Favorites" inManagedObjectContext:managedObjectContext];
+    [fetchRequest setEntity:entity];
+    // Specify criteria for filtering which objects to fetch
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name == %@", placeName];
+    [fetchRequest setPredicate:predicate];
+    
+    
+    NSError *error = nil;
+    NSArray *fetchedObjects = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    if (fetchedObjects == nil) {
+        NSLog(@"Error");
+        name = nil;
+    } else {
+        for (Favorites *fav in fetchedObjects) {
+            name= fav.name;
+        }
+    }
+    
+        return name;
+}
+
 
 /*
 #pragma mark - Navigation
