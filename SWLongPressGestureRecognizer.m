@@ -28,6 +28,5 @@
     
     self.state = UIGestureRecognizerStateFailed;
 }
-
 @end
 

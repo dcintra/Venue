@@ -232,13 +232,15 @@
 }
 
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    NSLog(@"SELECTED ROW");
-    [self performSegueWithIdentifier:@"TableItemToDetail" sender:indexPath];
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"Did select %d,%d", indexPath.section, indexPath.row);
 }
 
+
+
+
 #pragma mark - Navigation
+
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     
@@ -256,6 +258,8 @@
     }
     
 }
+
+
 
 
 @end

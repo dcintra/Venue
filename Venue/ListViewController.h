@@ -15,7 +15,6 @@
 
 
 @interface ListViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, SWTableViewCellDelegate>
-
 @property NSMutableArray *venueArray;
 @property NSMutableArray *sortedVenueArray;
 @property (nonatomic) id <SWTableViewCellDelegate> delegate;
