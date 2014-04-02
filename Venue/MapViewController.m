@@ -119,7 +119,7 @@
                 UIGraphicsEndImageContext();
                 dispatch_async(dispatch_get_main_queue(), ^{
                     NSLog(@"finished adding images to object");
-                    
+                    placeObject.image = newImage;
                     place.image = newImage;
                 });
             });
@@ -178,6 +178,7 @@
             venue = (VenueAnnotation *) annotationView.annotation;
         }
         if (venue){
+            //imageView.image = venue.image;
             NSLog(@"PHOTO URL: %@",venue.photoURL);
             
             _pic_queue = dispatch_queue_create("imageFetcher", nil);
@@ -186,6 +187,7 @@
                 UIImage *photo=[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:venue.photoURL]]];
                 dispatch_async(dispatch_get_main_queue(), ^{
                     NSLog(@"finished processing images");
+                    venue.image = photo;
                     imageView.image = photo;
                 });
             });
@@ -215,6 +217,7 @@
                 dvc.rating = venue.rating;
                 dvc.isOpen = venue.isOpen;
                 dvc.price = venue.price;
+                dvc.photo = venue.image;
             }
         }
     }

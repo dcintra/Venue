@@ -17,5 +17,6 @@
 @property BOOL isOpen;
 @property NSString *photoURL;
 @property NSString *price;
+@property UIImage *photo;
 
 @end

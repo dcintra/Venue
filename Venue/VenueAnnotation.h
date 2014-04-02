@@ -20,6 +20,7 @@
 @property NSString *photoURL;
 @property NSString *price;
 @property NSArray *type;
+@property UIImage *image;
 
 
 - initWithName:(NSString*)placename address:(NSString*)addr coordinate:(CLLocationCoordinate2D)coords photoURL:(NSString*)pic rating:(NSString*) ratingLevel isOpen:(BOOL) openHours price:(NSString*) priceLevel;

@@ -22,6 +22,6 @@
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 
--(BOOL)venueExistsInFavorites: (NSManagedObjectContext *) mOC withName: (NSString *) venueName andAddress: (NSString *) add;
+-(BOOL)venueExistsInFavorites: (NSString *) venueName andAddress: (NSString *) add;
 
 @end

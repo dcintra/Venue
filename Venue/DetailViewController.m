@@ -62,20 +62,7 @@
     
     self.priceLevel.text = [NSString stringWithFormat:@"%@",self.price];
     
-    if (self.photoURL){
-        NSLog(@"PHOTO URL: %@",self.photoURL);
-        
-        _photo_queue = dispatch_queue_create("getImage", nil);
-        dispatch_async(_photo_queue, ^{
-            
-            UIImage *photo=[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:self.photoURL]]];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                NSLog(@"finished processing images");
-                self.venuePhoto.image = photo;
-            });
-        });
-        
-    }
+    self.venuePhoto.image = self.photo;
     
     
 }

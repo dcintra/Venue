@@ -8,22 +8,22 @@
 
 #import "ListViewController.h"
 #import "MapViewController.h"
+#import "DetailViewController.h"
 #import "Favorites.h"
-
-
-
+#define favColor [UIColor colorWithRed:255/255.0f green:141/255.0f blue:166/255.0f alpha:1.0f]
 @interface ListViewController ()
 
 @end
 
-@implementation ListViewController{
-    dispatch_queue_t _photo_queue;
-}
+@implementation ListViewController
+
+
 
 @synthesize venueArray, sortedVenueArray;
 @synthesize delegate;
 @synthesize managedObjectContext;
 @synthesize managedObjectModel;
+
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -42,67 +42,54 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
    
     static NSString *cellIdentifier = @"Cell";
-    SWTableViewCell *cell = (SWTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    [cell.imageView setImage:[UIImage imageNamed:@"ic_action_place"]];
-    
-    
+    SWTableViewCell *cell;
     id appDelegate = [[UIApplication sharedApplication] delegate];
     managedObjectContext = [appDelegate managedObjectContext];
     
 
     NSString *placeName = [venueArray[indexPath.row] name];
-    NSString *placeAddress = [venueArray[indexPath.row] address];
+    NSString *placeAddress = (NSString*) [venueArray[indexPath.row] address];
     NSString *name = [self nameofExistingVenue:managedObjectContext withName:placeName];
-    NSMutableArray *indexArray = [NSMutableArray new];
     
-    
-    if([placeName isEqualToString:name]){
-        [indexArray addObject:[NSNumber numberWithInt:indexPath.row]];
-         NSLog(@"items are in index: %@", [indexArray description]);
+    if (cell == nil) {
+        NSMutableArray *leftUtilityButtons = [NSMutableArray new];
+        [leftUtilityButtons sw_addUtilityButtonWithColor:[UIColor grayColor] icon:[UIImage imageNamed:@"ic_action_favorite"]];
+        cell = [[SWTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
+                                      reuseIdentifier:cellIdentifier
+                                  containingTableView:tableView
+                                   leftUtilityButtons:leftUtilityButtons
+                                  rightUtilityButtons:nil];
+        cell.delegate = self;
         
-        if (cell == nil) {
-            NSMutableArray *leftUtilityButtons = [NSMutableArray new];
-            [leftUtilityButtons sw_addUtilityButtonWithColor:[UIColor greenColor] icon:[UIImage imageNamed:@"ic_action_favorite"]];
-            cell = [[SWTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
-                                          reuseIdentifier:cellIdentifier
-                                      containingTableView:tableView
-                                       leftUtilityButtons:leftUtilityButtons
-                                      rightUtilityButtons:nil];
-            cell.delegate = self;
-            
-        }
-        
-    } else{
-        if (cell == nil) {
-            NSMutableArray *leftUtilityButtons = [NSMutableArray new];
-            [leftUtilityButtons sw_addUtilityButtonWithColor:[UIColor grayColor] icon:[UIImage imageNamed:@"ic_action_favorite"]];
-            cell = [[SWTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
-                                          reuseIdentifier:cellIdentifier
-                                      containingTableView:tableView
-                                       leftUtilityButtons:leftUtilityButtons
-                                      rightUtilityButtons:nil];
-            cell.delegate = self;
-            
-        }
     }
     
+
+    
+    if([placeName isEqualToString:name]){
+        [cell.leftUtilityButtons[0] setBackgroundColor:favColor];
+    }
+    
+    
     UIImage *photo = [venueArray[indexPath.row] image];
-    UIImageView *New = [[UIImageView alloc] initWithFrame:CGRectMake(20, 20, 100, 100)];
-    
-    New.image = photo;
-    
-    [cell.imageView setImage:photo];
-    
+
+    if(photo){
+        UIImageView *New = [[UIImageView alloc] initWithFrame:CGRectMake(20, 20, 100, 100)];
+        New.image = photo;
+        [cell.imageView setImage:photo];
+    }else{
+        [cell.imageView setImage:[UIImage imageNamed:@"ic_action_place"]];
+    }
+ 
     cell.textLabel.text = placeName;
     cell.detailTextLabel.text = placeAddress;
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     cell.selectionStyle = UITableViewCellSelectionStyleBlue;
-    
 
     
 
     return cell;
 }
+
 
 - (void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerLeftUtilityButtonWithIndex:(NSInteger)index {
     
@@ -125,6 +112,7 @@
     
     
     if(index == 0){
+
 //SAVE
         if([cell.leftUtilityButtons[0] backgroundColor]== [UIColor grayColor]){
             //store venue information
@@ -140,7 +128,7 @@
             }
             
             //change color of button when saved
-            [cell.leftUtilityButtons[0] setBackgroundColor:[UIColor greenColor]];
+            [cell.leftUtilityButtons[0] setBackgroundColor: favColor];
         }
 //DELETE
         else {
@@ -198,7 +186,7 @@
 }
 
 //Check if venue exists in CoreData
--(BOOL) venueExistsInFavorites: (NSManagedObjectContext *) mOC withName: (NSString *) venueName andAddress: (NSString *) add{
+-(BOOL) venueExistsInFavorites: (NSString *) venueName andAddress: (NSString *) add{
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Favorites" inManagedObjectContext:managedObjectContext];
@@ -244,15 +232,30 @@
 }
 
 
-/*
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"SELECTED ROW");
+    [self performSegueWithIdentifier:@"TableItemToDetail" sender:indexPath];
+}
+
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    
+    if ([[segue identifier] isEqualToString:@"TableItemToDetail"]){
+        NSIndexPath * indexPath = (NSIndexPath*)sender;
+        DetailViewController *dvc = segue.destinationViewController;;
+        dvc.name = [venueArray[indexPath.row] name];
+        dvc.address = (NSString *)[venueArray[indexPath.row] address];
+        dvc.photoURL = [venueArray[indexPath.row] photoURL];
+        dvc.rating = [venueArray[indexPath.row] rating];
+        dvc.isOpen = [venueArray[indexPath.row] isOpen];
+        dvc.price = [venueArray[indexPath.row] price];
+        dvc.photo = [venueArray[indexPath.row] photo];
+
+    }
+    
 }
-*/
+
 
 @end

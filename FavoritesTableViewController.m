@@ -100,8 +100,8 @@
     
     
     cell.textLabel.text = [fetchedObj[indexPath.row] name];
-    cell.detailTextLabel.text = [fetchedObj[indexPath.row] address];
-    
+    NSString * addr = (NSString*) [fetchedObj[indexPath.row] address];
+    cell.detailTextLabel.text = addr;
     return cell;
 }
 
