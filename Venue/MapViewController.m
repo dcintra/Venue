@@ -56,9 +56,8 @@
 {
     [super viewDidLoad];
     
-//    UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithTitle: @"Add" style: UIBarButtonItemStylePlain target: self action: @selector(saveButton:)];
     
-    UIBarButtonItem *leftButton = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"ic_action_search_light"] style:UIBarButtonItemStylePlain target:self action:@selector(saveButton:)];
+    UIBarButtonItem *leftButton = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"ic_action_search_light"] style:UIBarButtonItemStylePlain target:self action:@selector(searchButton:)];
     
     self.navigationItem.leftBarButtonItem = leftButton;
     // Check is query and coordinates have been passed along correctly
@@ -68,7 +67,7 @@
     [self plotAnnotations:venueArray];
 }
 
--(void) saveButton: (id)sender{
+-(void) searchButton: (id)sender{
     NSLog(@"Hello");
     [self performSegueWithIdentifier:@"SegueIdentifier" sender:sender];
     
@@ -237,6 +236,4 @@
 }
 
 
-- (IBAction)searchButton:(id)sender {
-}
 @end

@@ -62,7 +62,20 @@
     
     self.priceLevel.text = [NSString stringWithFormat:@"%@",self.price];
     
-    self.venuePhoto.image = self.photo;
+    if (self.photo) {
+        self.venuePhoto.image = self.photo;
+    } else {
+        _photo_queue = dispatch_queue_create("imageFetcher", nil);
+        dispatch_async(_photo_queue, ^{
+            
+            UIImage *photo=[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:self.photoURL]]];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                NSLog(@"finished processing images");
+                self.venuePhoto.image = photo;
+            });
+        });
+    }
+    
     
     
 }

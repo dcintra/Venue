@@ -10,8 +10,11 @@
 #import "MapViewController.h"
 #import "DetailViewController.h"
 #import "Favorites.h"
+#import "SWTableViewCell.h"
+
 #define favColor [UIColor colorWithRed:255/255.0f green:141/255.0f blue:166/255.0f alpha:1.0f]
 @interface ListViewController ()
+@property (weak, nonatomic) IBOutlet UITableView *myTable;
 
 @end
 
@@ -64,7 +67,6 @@
     }
     
 
-    
     if([placeName isEqualToString:name]){
         [cell.leftUtilityButtons[0] setBackgroundColor:favColor];
     }
@@ -232,10 +234,10 @@
 }
 
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"Did select %d,%d", indexPath.section, indexPath.row);
+-(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSLog(@"helllo");
+    [self performSegueWithIdentifier:@"TableItemToDetail" sender:self];
 }
-
 
 
 
@@ -245,16 +247,15 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     
     if ([[segue identifier] isEqualToString:@"TableItemToDetail"]){
-        NSIndexPath * indexPath = (NSIndexPath*)sender;
+        NSIndexPath *myIndexPath = [self.myTable
+                                    indexPathForSelectedRow];
         DetailViewController *dvc = segue.destinationViewController;;
-        dvc.name = [venueArray[indexPath.row] name];
-        dvc.address = (NSString *)[venueArray[indexPath.row] address];
-        dvc.photoURL = [venueArray[indexPath.row] photoURL];
-        dvc.rating = [venueArray[indexPath.row] rating];
-        dvc.isOpen = [venueArray[indexPath.row] isOpen];
-        dvc.price = [venueArray[indexPath.row] price];
-        dvc.photo = [venueArray[indexPath.row] photo];
-
+        dvc.name = [venueArray[myIndexPath.row] name];
+        dvc.address = (NSString *)[venueArray[myIndexPath.row] address];
+        dvc.photoURL = [venueArray[myIndexPath.row] photoURL];
+        dvc.rating = [venueArray[myIndexPath.row] rating];
+        dvc.isOpen = [venueArray[myIndexPath.row] isOpen];
+        dvc.price = [venueArray[myIndexPath.row] price];
     }
     
 }

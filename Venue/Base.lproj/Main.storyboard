@@ -138,6 +138,7 @@
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="ZbQ-6i-cZu" id="bJ2-Ak-xj4"/>
+                                    <outlet property="delegate" destination="ZbQ-6i-cZu" id="Q5w-me-xcn"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -151,6 +152,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="cJt-3H-xMc"/>
                     <connections>
+                        <outlet property="myTable" destination="5M8-sF-iyo" id="RT4-Tq-8KE"/>
                         <segue destination="IhX-hi-cWv" kind="push" identifier="TableItemToDetail" id="W1H-Pw-mvX"/>
                     </connections>
                 </viewController>
@@ -158,7 +160,7 @@
             </objects>
             <point key="canvasLocation" x="971" y="1037"/>
         </scene>
-        <!--Favorites Table View Controller - Root View Controller-->
+        <!--Favorites Table View Controller - Favorites-->
         <scene sceneID="pBR-GI-GSj">
             <objects>
                 <tableViewController id="fG9-OK-SQD" customClass="FavoritesTableViewController" sceneMemberID="viewController">
@@ -197,7 +199,7 @@
                             <outlet property="delegate" destination="fG9-OK-SQD" id="g4V-ii-6yL"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="EJJ-xK-h3A"/>
+                    <navigationItem key="navigationItem" title="Favorites" id="EJJ-xK-h3A"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cDy-kQ-btK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

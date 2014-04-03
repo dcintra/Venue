@@ -25,6 +25,7 @@ typedef enum {
 @protocol SWTableViewCellDelegate <NSObject>
 
 @optional
+-(void)didSelectedCell:(SWTableViewCell *)cell;
 - (void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerLeftUtilityButtonWithIndex:(NSInteger)index;
 - (void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerRightUtilityButtonWithIndex:(NSInteger)index;
 - (void)swipeableTableViewCell:(SWTableViewCell *)cell scrollingToState:(SWCellState)state;

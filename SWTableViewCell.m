@@ -115,6 +115,7 @@ static NSString * const kTableViewCellContentView = @"UITableViewCellContentView
     
     self.tapGestureRecognizer = tapGestureRecognizer;
     
+    
     SWLongPressGestureRecognizer *longPressGestureRecognizer = [[SWLongPressGestureRecognizer alloc] initWithTarget:self
                                                                                                              action:@selector(scrollViewLongPressGestureRecognizerFired:)];
     longPressGestureRecognizer.cancelsTouchesInView = NO;
@@ -233,6 +234,7 @@ static NSString * const kTableViewCellContentView = @"UITableViewCellContentView
         }
     }
 }
+
 
 - (void)scrollViewTapGestureRecognizerFired:(UITapGestureRecognizer *)sender
 {
