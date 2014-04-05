@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *priceLevel;
 @property (weak, nonatomic) IBOutlet UILabel *ratingOutlet;
 @property (weak, nonatomic) IBOutlet UILabel *isOpenOutlet;
+@property (weak, nonatomic) IBOutlet UIImageView *circle;
 
 
 @end
@@ -26,11 +27,12 @@
 @synthesize name, address, isOpen, rating, photoURL, placeName, price;
 
 - (void)awakeFromNib {
-    
-    //put logo image in the navigationBar
-    
+
+    UIImageView* img = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"logo.png"]];
+    self.navigationItem.titleView = img;
     
 }
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -48,23 +50,42 @@
     
     if(self.isOpen){
         self.isOpenOutlet.text = @"Yup";
+        self.circle.image = [UIImage imageNamed:@"green_circle"];
     } else{
         self.isOpenOutlet.text = @"Nope";
+        self.circle.image = [UIImage imageNamed:@"redcircle"];
     }
     
     self.placeName.text = name;
     self.addressOutlet.text = address;
     if (self.rating){
-        self.ratingOutlet.text = [NSString stringWithFormat:@"%@",self.rating];
+        self.ratingOutlet.text = [NSString stringWithFormat:@"%@/5",self.rating];
     } else{
-        self.ratingOutlet.text = @"No ratings. Take a chance?";
+        self.ratingOutlet.text = @"N/A";
     }
     
-    self.priceLevel.text = [NSString stringWithFormat:@"%@",self.price];
+    NSInteger prix = [self.price integerValue];
     
+    if (prix == 0) {
+        self.priceLevel.text = @"$";
+    } else if(prix == 1){
+        self.priceLevel.text = @"$$";
+    } else if(prix == 2){
+        self.priceLevel.text = @"$$$";
+    }else if(prix == 3){
+        self.priceLevel.text = @"$$$$";
+    }else if(prix == 4){
+        self.priceLevel.text = @"$$$$$";
+    }else{
+        self.priceLevel.text = @"N/A";
+    }
+    
+    self.venuePhoto.frame = CGRectMake(self.venuePhoto.frame.origin.x, self.venuePhoto.frame.origin.y, 321, 170);
+    
+    //check if we have a photo if not either grab one from the URL or use the stock image
     if (self.photo) {
         self.venuePhoto.image = self.photo;
-    } else {
+    } else if (self.photoURL){
         _photo_queue = dispatch_queue_create("imageFetcher", nil);
         dispatch_async(_photo_queue, ^{
             
@@ -74,6 +95,8 @@
                 self.venuePhoto.image = photo;
             });
         });
+    } else{
+        self.venuePhoto.image = [UIImage imageNamed:@"photo_placeholder"];
     }
     
     

@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6533EF8818E381DA0098FD5A /* ImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 6533EF8718E381DA0098FD5A /* ImageDownloader.m */; };
 		6533F00C18ECC1F80098FD5A /* NSMutableArray+SWUtilityButtons.m in Sources */ = {isa = PBXBuildFile; fileRef = 6533EFFC18ECC1F70098FD5A /* NSMutableArray+SWUtilityButtons.m */; };
 		6533F00D18ECC1F80098FD5A /* SWButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6533EFFE18ECC1F70098FD5A /* SWButton.m */; };
 		6533F00E18ECC1F80098FD5A /* SWCellScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6533F00018ECC1F70098FD5A /* SWCellScrollView.m */; };
@@ -44,6 +43,8 @@
 		65F5D88718DE166B003DA830 /* Venue.m in Sources */ = {isa = PBXBuildFile; fileRef = 65F5D88618DE166B003DA830 /* Venue.m */; };
 		65F5D99918E0DFC9003DA830 /* Favorites.m in Sources */ = {isa = PBXBuildFile; fileRef = 65F5D99818E0DFC9003DA830 /* Favorites.m */; };
 		65F5D99C18E33E41003DA830 /* FavoritesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65F5D99B18E33E41003DA830 /* FavoritesTableViewController.m */; };
+		65F80F5F18EF25C0000E0172 /* NSString+AddressSubString.m in Sources */ = {isa = PBXBuildFile; fileRef = 65F80F5E18EF25C0000E0172 /* NSString+AddressSubString.m */; };
+		65F80F6218EF9A76000E0172 /* SearchToFavorite.m in Sources */ = {isa = PBXBuildFile; fileRef = 65F80F6118EF9A76000E0172 /* SearchToFavorite.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,8 +58,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		6533EF8618E381DA0098FD5A /* ImageDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageDownloader.h; sourceTree = "<group>"; };
-		6533EF8718E381DA0098FD5A /* ImageDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageDownloader.m; sourceTree = "<group>"; };
 		6533EFFB18ECC1F70098FD5A /* NSMutableArray+SWUtilityButtons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+SWUtilityButtons.h"; sourceTree = "<group>"; };
 		6533EFFC18ECC1F70098FD5A /* NSMutableArray+SWUtilityButtons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+SWUtilityButtons.m"; sourceTree = "<group>"; };
 		6533EFFD18ECC1F70098FD5A /* SWButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWButton.h; sourceTree = "<group>"; };
@@ -118,6 +117,10 @@
 		65F5D99818E0DFC9003DA830 /* Favorites.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Favorites.m; sourceTree = "<group>"; };
 		65F5D99A18E33E41003DA830 /* FavoritesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FavoritesTableViewController.h; path = ../FavoritesTableViewController.h; sourceTree = "<group>"; };
 		65F5D99B18E33E41003DA830 /* FavoritesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FavoritesTableViewController.m; path = ../FavoritesTableViewController.m; sourceTree = "<group>"; };
+		65F80F5D18EF25C0000E0172 /* NSString+AddressSubString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+AddressSubString.h"; sourceTree = "<group>"; };
+		65F80F5E18EF25C0000E0172 /* NSString+AddressSubString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+AddressSubString.m"; sourceTree = "<group>"; };
+		65F80F6018EF9A76000E0172 /* SearchToFavorite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchToFavorite.h; sourceTree = "<group>"; };
+		65F80F6118EF9A76000E0172 /* SearchToFavorite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchToFavorite.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -282,10 +285,12 @@
 		65F5D99518E0BC90003DA830 /* CustomClasses */ = {
 			isa = PBXGroup;
 			children = (
+				65F80F5D18EF25C0000E0172 /* NSString+AddressSubString.h */,
+				65F80F5E18EF25C0000E0172 /* NSString+AddressSubString.m */,
 				65F5D88218DE0F9C003DA830 /* PlacesAPISearch.h */,
+				65F80F6018EF9A76000E0172 /* SearchToFavorite.h */,
+				65F80F6118EF9A76000E0172 /* SearchToFavorite.m */,
 				65F5D88318DE0F9C003DA830 /* PlacesAPISearch.m */,
-				6533EF8618E381DA0098FD5A /* ImageDownloader.h */,
-				6533EF8718E381DA0098FD5A /* ImageDownloader.m */,
 				65A4A9A518DB505600F07A20 /* VenueAnnotation.h */,
 				65A4A9A618DB505600F07A20 /* VenueAnnotation.m */,
 				65F5D88518DE166B003DA830 /* Venue.h */,
@@ -398,15 +403,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6533EF8818E381DA0098FD5A /* ImageDownloader.m in Sources */,
 				65F5D99C18E33E41003DA830 /* FavoritesTableViewController.m in Sources */,
 				6533F01118ECC1F80098FD5A /* SWUtilityButtonTapGestureRecognizer.m in Sources */,
 				65D6A20E18DCEFB90005FA45 /* TabBarViewController.m in Sources */,
 				65F5D88418DE0F9C003DA830 /* PlacesAPISearch.m in Sources */,
 				6583721A18D8B1210009971B /* AppDelegate.m in Sources */,
 				6533F00F18ECC1F80098FD5A /* SWLongPressGestureRecognizer.m in Sources */,
+				65F80F6218EF9A76000E0172 /* SearchToFavorite.m in Sources */,
 				6583722018D8B1210009971B /* Venue.xcdatamodeld in Sources */,
 				6533F01018ECC1F80098FD5A /* SWTableViewCell.m in Sources */,
+				65F80F5F18EF25C0000E0172 /* NSString+AddressSubString.m in Sources */,
 				65F5D99918E0DFC9003DA830 /* Favorites.m in Sources */,
 				6583698D18D8B72F00C988E1 /* ListViewController.m in Sources */,
 				6583698A18D8B6F600C988E1 /* MapViewController.m in Sources */,

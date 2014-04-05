@@ -11,7 +11,6 @@
 #import "TabBarViewController.h"
 #import "SWTableViewCell.h"
 #import "AppDelegate.h"
-#import "ImageDownloader.h"
 
 
 @interface ListViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, SWTableViewCellDelegate>

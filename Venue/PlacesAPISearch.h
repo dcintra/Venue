@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "Venue.h"
 #import <MapKit/MapKit.h>
+#import "NSString+AddressSubString.h"
 
 #define GOOGLE_API_KEY @"AIzaSyDFuUDUhdTLk_WNs390u9kRSqZ3IDBGmJ8"
 #define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)

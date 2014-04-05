@@ -13,6 +13,7 @@
 #import "ListViewController.h"
 #import "PlacesAPISearch.h"
 #import "Venue.h"
+#import "SearchToFavorite.h"
 
 @interface SearchViewController : UIViewController <MKMapViewDelegate, CLLocationManagerDelegate, UISearchBarDelegate, UITabBarControllerDelegate>
 @property (strong, nonatomic) CLLocationManager *locationManager;
@@ -20,5 +21,10 @@
 @property (strong, nonatomic) NSString *query;
 @property PlacesAPISearch *apiSearch;
 @property NSMutableArray *venueArray;
+@property UIActivityIndicatorView *spinner;
+@property UIDynamicAnimator* animator;
+@property UIGravityBehavior* gravity;
+@property UICollisionBehavior* collision;
+@property UIButton *draggableLogo;
 
 @end

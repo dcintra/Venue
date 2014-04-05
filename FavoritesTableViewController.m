@@ -9,6 +9,7 @@
 #import "FavoritesTableViewController.h"
 
 @interface FavoritesTableViewController ()
+- (IBAction)searchButton:(id)sender;
 
 @end
 
@@ -16,6 +17,9 @@
 
 @synthesize managedObjectContext;
 @synthesize managedObjectModel;
+
+
+#pragma mark - View Setup
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -41,6 +45,10 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     NSLog(@"In favorites Tab");
+}
+
+- (IBAction)searchButton:(id)sender {
+    [self performSegueWithIdentifier:@"BackToSearch" sender:sender];
 }
 
 - (void)didReceiveMemoryWarning
@@ -73,8 +81,6 @@
 }
 
 
-
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *cellIdentifier = @"Cell";
@@ -98,25 +104,16 @@
         NSLog(@"Name: %@ and Address: %@", fav.name, fav.address);
     }
     
-    
+    cell.imageView.image = [UIImage imageNamed:@"ic_action_favorite_pink"];
     cell.textLabel.text = [fetchedObj[indexPath.row] name];
-    NSString * addr = (NSString*) [fetchedObj[indexPath.row] address];
-    cell.detailTextLabel.text = addr;
+    NSString *address = (NSString*) [fetchedObj[indexPath.row] address];
+    
+    cell.detailTextLabel.text = address;
     return cell;
 }
 
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-
-// Override to support editing the table view.
+//Enable deleting cells from table
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
@@ -147,37 +144,7 @@
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
         
         
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+    }
 }
-
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

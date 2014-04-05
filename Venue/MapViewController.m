@@ -9,6 +9,7 @@
 #import "MapViewController.h"
 #import "DetailViewController.h"
 #import "SearchViewController.h"
+#import "NSString+AddressSubString.h"
 
 
 
@@ -17,6 +18,7 @@
 
 @property NSString *KEY;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
+- (IBAction)searchButton:(id)sender;
 
 @end
 
@@ -25,11 +27,39 @@
     dispatch_queue_t _pic_queue;
 }
 
-
-
-
 @synthesize currentLocation, placeObject;
 @synthesize venueArray;
+
+#pragma mark - ViewController setup
+
+- (void)awakeFromNib {
+    
+    UIImageView* img = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"logo.png"]];
+    self.navigationItem.titleView = img;
+    
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    // Check is query and coordinates have been passed along correctly
+    TabBarViewController *tabBar = (TabBarViewController *)self.tabBarController;
+    venueArray = tabBar.venueArray;
+    
+    [self plotAnnotations:venueArray];
+}
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        // Custom initialization
+    }
+    return self;
+}
+
+#pragma mark - Map setup
 
 -(void)setMapView:(MKMapView *)mapView{
     _mapView = mapView;
@@ -41,39 +71,7 @@
     [mapView setRegion:[self.mapView regionThatFits:region] animated:YES];
 }
 
-
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    
-    
-    UIBarButtonItem *leftButton = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"ic_action_search_light"] style:UIBarButtonItemStylePlain target:self action:@selector(searchButton:)];
-    
-    self.navigationItem.leftBarButtonItem = leftButton;
-    // Check is query and coordinates have been passed along correctly
-    TabBarViewController *tabBar = (TabBarViewController *)self.tabBarController;
-    venueArray = tabBar.venueArray;
-
-    [self plotAnnotations:venueArray];
-}
-
--(void) searchButton: (id)sender{
-    NSLog(@"Hello");
-    [self performSegueWithIdentifier:@"SegueIdentifier" sender:sender];
-    
-}
-
-
+#pragma mark - Annotation setup
 -(void) plotAnnotations: (NSArray *) data {
     for (id<MKAnnotation> annotation in _mapView.annotations) {
         if ([annotation isKindOfClass:[VenueAnnotation class]]) {
@@ -92,7 +90,8 @@
         
         //Place name address
         NSString *name= place.name;
-        NSString *address= place.address;
+        NSString *fullAddress = place.address;
+        NSString *address= [fullAddress substringAddress:fullAddress];
         
         //Rating
         NSString *rating= place.rating;
@@ -165,7 +164,6 @@
 }
 
 
-
 - (void) updateLeftCalloutAccessory:(MKAnnotationView *)annotationView{
     UIImageView *imageView = nil;
     if([annotationView.leftCalloutAccessoryView isKindOfClass:[UIImageView class]]) {
@@ -195,11 +193,7 @@
     }
 }
 
-- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control{
-    
-    [self performSegueWithIdentifier:@"ShowDetails" sender:view];
-}
-
+#pragma mark - Segue
 - (void) prepareViewController:(id) vc forSegue: (NSString *) segueIdentifier toShowAnnotation: (id <MKAnnotation>) annotation
 {
     VenueAnnotation *venue = nil;
@@ -229,11 +223,20 @@
     }
 }
 
+- (IBAction)searchButton:(id)sender {
+    [self performSegueWithIdentifier:@"SegueIdentifier" sender:sender];
+}
+
+- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control{
+    
+    [self performSegueWithIdentifier:@"ShowDetails" sender:view];
+}
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
 }
+
 
 
 @end

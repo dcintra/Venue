@@ -11,10 +11,10 @@
 #import "DetailViewController.h"
 #import "Favorites.h"
 #import "SWTableViewCell.h"
-
-#define favColor [UIColor colorWithRed:255/255.0f green:141/255.0f blue:166/255.0f alpha:1.0f]
+#define favColor [UIColor colorWithRed:255/255.0f green:222/255.0f blue:94/255.0f alpha:1.0f]
 @interface ListViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *myTable;
+- (IBAction)searchButton:(id)sender;
 
 @end
 
@@ -27,7 +27,13 @@
 @synthesize managedObjectContext;
 @synthesize managedObjectModel;
 
-
+#pragma mark - Controller setup
+- (void)awakeFromNib {
+    
+    UIImageView* img = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"logo.png"]];
+    self.navigationItem.titleView = img;
+    
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -38,22 +44,58 @@
     return self;
 }
 
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:NO];
+    
+    [_myTable reloadData];
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    TabBarViewController *tabBar = (TabBarViewController *)self.tabBarController;
+    
+    //sort the cells by distance
+    NSSortDescriptor* sortByDistance = [NSSortDescriptor sortDescriptorWithKey:@"distanceFromCurrentLocation" ascending:YES];
+    venueArray = tabBar.venueArray;
+    [venueArray sortUsingDescriptors:[NSArray arrayWithObject:sortByDistance]];
+    
+    
+    for (Venue *venue in venueArray) {
+        NSLog(@"Venue name: %@", venue.name);
+    }
+    
+    
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - TableView setup
+
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return [venueArray count];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-   
+    
     static NSString *cellIdentifier = @"Cell";
     SWTableViewCell *cell;
     id appDelegate = [[UIApplication sharedApplication] delegate];
     managedObjectContext = [appDelegate managedObjectContext];
     
-
+    
     NSString *placeName = [venueArray[indexPath.row] name];
     NSString *placeAddress = (NSString*) [venueArray[indexPath.row] address];
-    NSString *name = [self nameofExistingVenue:managedObjectContext withName:placeName];
+    NSString *name = [self nameofExistingVenue:placeName withAddress:placeAddress andContext:managedObjectContext];
+    NSLog(@"name %@",name);
     
+    //set up cell with leftutility button
     if (cell == nil) {
         NSMutableArray *leftUtilityButtons = [NSMutableArray new];
         [leftUtilityButtons sw_addUtilityButtonWithColor:[UIColor grayColor] icon:[UIImage imageNamed:@"ic_action_favorite"]];
@@ -65,15 +107,14 @@
         cell.delegate = self;
         
     }
-    
-
+    //check if the place is already stored in CoreData, if so make sure the utility button is highlighted
     if([placeName isEqualToString:name]){
         [cell.leftUtilityButtons[0] setBackgroundColor:favColor];
     }
     
-    
+    //check if there's an image for the place
     UIImage *photo = [venueArray[indexPath.row] image];
-
+    
     if(photo){
         UIImageView *New = [[UIImageView alloc] initWithFrame:CGRectMake(20, 20, 100, 100)];
         New.image = photo;
@@ -81,17 +122,19 @@
     }else{
         [cell.imageView setImage:[UIImage imageNamed:@"ic_action_place"]];
     }
- 
+    
+    //finish cell setup
     cell.textLabel.text = placeName;
     cell.detailTextLabel.text = placeAddress;
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     cell.selectionStyle = UITableViewCellSelectionStyleBlue;
-
     
-
+    
+    
     return cell;
 }
 
+#pragma mark - Swipeable TableView setup
 
 - (void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerLeftUtilityButtonWithIndex:(NSInteger)index {
     
@@ -115,7 +158,7 @@
     
     if(index == 0){
 
-//SAVE
+    //SAVE
         if([cell.leftUtilityButtons[0] backgroundColor]== [UIColor grayColor]){
             //store venue information
             Favorites *favoriteVenue= [NSEntityDescription
@@ -132,13 +175,13 @@
             //change color of button when saved
             [cell.leftUtilityButtons[0] setBackgroundColor: favColor];
         }
-//DELETE
+        //DELETE
         else {
             
             NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
             NSEntityDescription *entity = [NSEntityDescription entityForName:@"Favorites" inManagedObjectContext:managedObjectContext];
             [fetchRequest setEntity:entity];
-            // Specify criteria for filtering which objects to fetch
+            // Find and delete all places in the db that match the cell contents
             NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name == %@ AND address == %@", cell.textLabel.text,cell.detailTextLabel.text];
             [fetchRequest setPredicate:predicate];
             
@@ -146,15 +189,14 @@
             if (fetchedObjects == nil) {
                 NSLog(@"Problem fetching data");
             }
-            
             for(NSManagedObject *mOC in fetchedObjects){
                 [managedObjectContext deleteObject:mOC];
             }
             
-            
             if(! [managedObjectContext save:&error]){
                 NSLog(@"Error occurred when deleting object %@", error);
             }
+            // change color of button when removed from favorites
             [cell.leftUtilityButtons[0] setBackgroundColor:[UIColor grayColor]];
             
         }
@@ -163,29 +205,8 @@
 }
 
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    
-    TabBarViewController *tabBar = (TabBarViewController *)self.tabBarController;
-    
-    NSSortDescriptor* sortByDistance = [NSSortDescriptor sortDescriptorWithKey:@"distanceFromCurrentLocation" ascending:YES];
-    venueArray = tabBar.venueArray;
-    [venueArray sortUsingDescriptors:[NSArray arrayWithObject:sortByDistance]];
-    
-    
-    for (Venue *venue in venueArray) {
-        NSLog(@"Venue name: %@", venue.name);
-    }
 
-    
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+#pragma mark - CoreDate Methods
 
 //Check if venue exists in CoreData
 -(BOOL) venueExistsInFavorites: (NSString *) venueName andAddress: (NSString *) add{
@@ -207,7 +228,7 @@
 }
 
 //Check if venue exists in CoreData
--(NSString *) nameofExistingVenue: (NSManagedObjectContext *) mOC withName: (NSString *) placeName{
+-(NSString *) nameofExistingVenue: (NSString *) placeName withAddress: (NSString *) addr andContext:(NSManagedObjectContext *) mOC{
     
     NSString *name;
     
@@ -215,7 +236,7 @@
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Favorites" inManagedObjectContext:managedObjectContext];
     [fetchRequest setEntity:entity];
     // Specify criteria for filtering which objects to fetch
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name == %@", placeName];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name == %@ AND address == %@", placeName, addr];
     [fetchRequest setPredicate:predicate];
     
     
@@ -234,15 +255,7 @@
 }
 
 
--(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"helllo");
-    [self performSegueWithIdentifier:@"TableItemToDetail" sender:self];
-}
-
-
-
-#pragma mark - Navigation
-
+#pragma mark - Segue
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     
@@ -259,8 +272,13 @@
     }
     
 }
+- (IBAction)searchButton:(id)sender {
+    [self performSegueWithIdentifier:@"Search" sender:sender];
+}
 
-
-
+-(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSLog(@"helllo");
+    [self performSegueWithIdentifier:@"TableItemToDetail" sender:self];
+}
 
 @end

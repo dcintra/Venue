@@ -13,6 +13,7 @@
 
 @synthesize venueArray;
 
+#pragma mark - NetWork Requests
 -(NSMutableArray *)fetchedData:(NSData *)responseData currentLocation: (CLLocation*)  coord{
     //parse out the json data
     NSError* error;
@@ -50,7 +51,7 @@
         return venueArray;
 }
 
-
+#pragma mark - Store Place Information
 -(NSMutableArray *) savePlaces: (NSArray *) data currentLocation: (CLLocation*)  coord{
     
     venueArray = [NSMutableArray new];
@@ -73,7 +74,8 @@
         NSString *name=[place objectForKey:@"name"];
         NSLog(@"Place name: %@", name);
         NSLog(@"Distance from current location: %f", distance);
-        NSString *address=[place objectForKey:@"formatted_address"];
+        NSString *fullAddress=[place objectForKey:@"formatted_address"];
+        NSString *address = [fullAddress substringAddress:fullAddress];
         //Rating
         NSString *rating=[place objectForKey:@"rating"];
         // Opening Hours
