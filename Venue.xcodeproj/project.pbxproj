@@ -287,9 +287,9 @@
 			children = (
 				65F80F5D18EF25C0000E0172 /* NSString+AddressSubString.h */,
 				65F80F5E18EF25C0000E0172 /* NSString+AddressSubString.m */,
-				65F5D88218DE0F9C003DA830 /* PlacesAPISearch.h */,
 				65F80F6018EF9A76000E0172 /* SearchToFavorite.h */,
 				65F80F6118EF9A76000E0172 /* SearchToFavorite.m */,
+				65F5D88218DE0F9C003DA830 /* PlacesAPISearch.h */,
 				65F5D88318DE0F9C003DA830 /* PlacesAPISearch.m */,
 				65A4A9A518DB505600F07A20 /* VenueAnnotation.h */,
 				65A4A9A618DB505600F07A20 /* VenueAnnotation.m */,

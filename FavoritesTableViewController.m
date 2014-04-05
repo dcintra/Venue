@@ -104,7 +104,7 @@
         NSLog(@"Name: %@ and Address: %@", fav.name, fav.address);
     }
     
-    cell.imageView.image = [UIImage imageNamed:@"ic_action_favorite_pink"];
+    cell.imageView.image = [UIImage imageNamed:@"ic_action_favorite_star"];
     cell.textLabel.text = [fetchedObj[indexPath.row] name];
     NSString *address = (NSString*) [fetchedObj[indexPath.row] address];
     
@@ -145,6 +145,11 @@
         
         
     }
+}
+
+//Don't highlight cell when tapped
+-(BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath{
+    return NO;
 }
 
 @end
