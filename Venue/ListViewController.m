@@ -167,7 +167,9 @@
             
             favoriteVenue.name = cell.textLabel.text;
             favoriteVenue.address = cell.detailTextLabel.text;
-
+            NSData *pic = UIImagePNGRepresentation(cell.imageView.image);
+            favoriteVenue.photo = pic;
+            
             if(! [[self managedObjectContext] save:&error]){
                 NSLog(@"Error occurred when saving %@", error);
             }
@@ -277,7 +279,6 @@
 }
 
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"helllo");
     [self performSegueWithIdentifier:@"TableItemToDetail" sender:self];
 }
 

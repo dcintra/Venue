@@ -13,5 +13,5 @@
 
 @dynamic address;
 @dynamic name;
-
+@dynamic photo;
 @end

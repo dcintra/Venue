@@ -75,6 +75,7 @@
 		6533F00918ECC1F80098FD5A /* SWUtilityButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWUtilityButtonView.m; sourceTree = "<group>"; };
 		6533F00A18ECC1F80098FD5A /* UITableView+SWCellSelection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+SWCellSelection.h"; sourceTree = "<group>"; };
 		6533F00B18ECC1F80098FD5A /* UITableView+SWCellSelection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+SWCellSelection.m"; sourceTree = "<group>"; };
+		6540959418F1BBB5003AE09B /* Venue 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Venue 3.xcdatamodel"; sourceTree = "<group>"; };
 		65821C9F18D8B8A800DE2AA2 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		65821CA018D8B8A800DE2AA2 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		65821CA218D8BA1000DE2AA2 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -651,6 +652,7 @@
 			children = (
 				65F5D99618E0DFAC003DA830 /* Venue 2.xcdatamodel */,
 				6583721F18D8B1210009971B /* Venue.xcdatamodel */,
+				6540959418F1BBB5003AE09B /* Venue 3.xcdatamodel */,
 			);
 			currentVersion = 6583721F18D8B1210009971B /* Venue.xcdatamodel */;
 			path = Venue.xcdatamodeld;

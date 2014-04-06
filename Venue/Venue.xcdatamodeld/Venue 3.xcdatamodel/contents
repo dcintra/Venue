@@ -6,10 +6,12 @@
             <userInfo/>
         </attribute>
         <attribute name="photo" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="price" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="rating" optional="YES" attributeType="String" syncable="YES"/>
         <userInfo/>
     </entity>
     <fetchRequest name="FetchAll" entity="Favorites"/>
     <elements>
-        <element name="Favorites" positionX="261" positionY="189" width="128" height="90"/>
+        <element name="Favorites" positionX="261" positionY="189" width="128" height="120"/>
     </elements>
 </model>

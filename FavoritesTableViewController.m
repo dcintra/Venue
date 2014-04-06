@@ -38,13 +38,20 @@
 {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    //Check if CoreData is empty, if so show message
+
+    id appDelegate = [[UIApplication sharedApplication] delegate];
+    managedObjectContext = [appDelegate managedObjectContext];
+    managedObjectModel = [appDelegate managedObjectModel];
+    NSFetchRequest *fetchAll = [managedObjectModel fetchRequestTemplateForName:@"FetchAll"];
+    NSError *error = nil;
+    NSArray *fetchedObj = [managedObjectContext executeFetchRequest:fetchAll error:&error];
+    if(!fetchedObj || !fetchedObj.count){
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"No Favorite Places?" message:@"Surely you have some places you like. Search and bookmark your favorite places!" delegate:self cancelButtonTitle:@"Dismiss" otherButtonTitles:nil];
+            [alert show];
+    }
+
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
-    NSLog(@"In favorites Tab");
 }
 
 - (IBAction)searchButton:(id)sender {
@@ -77,6 +84,7 @@
     
     NSError *error = nil;
     NSArray *fetchedObj = [managedObjectContext executeFetchRequest:fetchAll error:&error];
+    
     return [fetchedObj count];
 }
 
@@ -104,11 +112,14 @@
         NSLog(@"Name: %@ and Address: %@", fav.name, fav.address);
     }
     
-    cell.imageView.image = [UIImage imageNamed:@"ic_action_favorite_star"];
+    UIImage *photo = [UIImage imageWithData:[fetchedObj[indexPath.row] photo]];
+    cell.imageView.image =photo;
     cell.textLabel.text = [fetchedObj[indexPath.row] name];
     NSString *address = (NSString*) [fetchedObj[indexPath.row] address];
     
+    cell.accessoryView = [[UIImageView alloc]initWithImage: [UIImage imageNamed:@"star"]];
     cell.detailTextLabel.text = address;
+    
     return cell;
 }
 
@@ -151,5 +162,6 @@
 -(BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath{
     return NO;
 }
+
 
 @end
