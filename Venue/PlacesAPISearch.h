@@ -11,7 +11,7 @@
 #import <MapKit/MapKit.h>
 #import "NSString+AddressSubString.h"
 
-#define GOOGLE_API_KEY @"AIzaSyDFuUDUhdTLk_WNs390u9kRSqZ3IDBGmJ8"
+#define GOOGLE_API_KEY @"INSERT KEY HERE"
 #define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
 
 @interface PlacesAPISearch : NSObject
